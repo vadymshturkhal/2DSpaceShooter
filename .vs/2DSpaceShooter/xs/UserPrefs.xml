@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{A2B1E0A3-40FA-F2DE-ED8A-8CD0E43A5F31}|Unit Tests">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Review/Scripts/ControllerReview.cs">
+    <Files>
+      <File FileName="Assets/Review/Scripts/ControllerReview.cs" Line="9" Column="1" />
+      <File FileName="Assets/Scripts/Player/Controller.cs" Line="233" Column="28" />
+      <File FileName="Assets/Scripts/Utility/InputManager.cs" Line="89" Column="23" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.UnityEditor.UI PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
