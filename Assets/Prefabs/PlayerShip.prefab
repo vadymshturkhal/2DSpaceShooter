@@ -4848,7 +4848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3c40a20e8dc5511a92d21357781225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBetweenProjectiles: 0.05
+  TimeBetweenProjectiles: 0.07
+  projectileSound: 0
 --- !u!114 &551092265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4861,7 +4862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5679f51e628d819ae57e3dd449c633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectileSpeed: 10
+  ProjectileSpeed: 15
   projectile: {fileID: 0}
 --- !u!1 &8288458293755281411
 GameObject:

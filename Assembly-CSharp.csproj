@@ -52,6 +52,9 @@
      <Compile Include="Assets\Scripts\Projectiles\DefaultProjectile.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ProjectileSpawner.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
+     <Compile Include="Assets\Scripts\Utils\GameAudioSource.cs" />
+     <Compile Include="Assets\Scripts\Utils\AudioClipName.cs" />
+     <Compile Include="Assets\Scripts\Utils\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ProjectileHandler.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
  <Reference Include="UnityEngine">

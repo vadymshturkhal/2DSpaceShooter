@@ -8,6 +8,9 @@ public class ProjectileHandler : MonoBehaviour
     [Range(0.01f, 0.5f)]
     float TimeBetweenProjectiles = 0.05f;
 
+    [SerializeField]
+    AudioClipName projectileSound;
+
     int teamId;
     float timeOut;
     bool firing;
@@ -30,6 +33,7 @@ public class ProjectileHandler : MonoBehaviour
 
     public void Fire(bool firing)
     {
+        // If pressed once we fire
         Firing();
         this.firing = firing;
     }
@@ -40,6 +44,8 @@ public class ProjectileHandler : MonoBehaviour
         {
             projectileSpawner.SpawnProjectile(teamId);
             timeOut = TimeBetweenProjectiles;
+
+            AudioManager.Play(projectileSound);
         }
         else
         {
