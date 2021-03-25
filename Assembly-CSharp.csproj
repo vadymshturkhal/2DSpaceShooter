@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{0CA980A3-A2C1-DC28-276B-7A55105E3A59}</ProjectGuid>
+    <ProjectGuid>{87B907E5-34D4-4F90-84B7-EA0FE93038AF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -47,11 +47,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Utils\ScreenUtils.cs" />
      <Compile Include="Assets\Scripts\ControllerReview.cs" />
-     <Compile Include="Assets\Scripts\MainProjectile.cs" />
-     <Compile Include="Assets\Scripts\ProjectileSpawner.cs" />
-     <Compile Include="Assets\Scripts\ClampInScreenBoxCollider.cs" />
-     <Compile Include="Assets\Scripts\ScreenUtils.cs" />
+     <Compile Include="Assets\Scripts\Projectiles\DefaultProjectile.cs" />
+     <Compile Include="Assets\Scripts\Projectiles\ProjectileSpawner.cs" />
+     <Compile Include="Assets\Scripts\Health.cs" />
+     <Compile Include="Assets\Scripts\Projectiles\ProjectileHandler.cs" />
+     <Compile Include="Assets\Scripts\Enemy.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/home/vshturkhal/UnityEditor/2020.3.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -617,102 +619,102 @@
  <HintPath>/home/vshturkhal/UnityEditor/2020.3.0f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Animation.Editor">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.InternalAPIEngineBridge.001">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.PixelPerfect">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
  </Reference>
  <Reference Include="PsdPlugin">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.IK.Editor">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Psdimporter.Editor">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Path.Editor">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.InternalAPIEditorBridge.001">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
  </Reference>
  <Reference Include="Unity.InputSystem">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Mathematics">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.IK.Runtime">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Animation.Triangle.Runtime">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Animation.Runtime">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.PixelPerfect.Editor">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Mathematics.Editor">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Common.Runtime">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.SpriteShape.Editor">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Common.Editor">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.SpriteShape.Runtime">
- <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooterReview/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+ <HintPath>/home/vshturkhal/Документи/UnityEngineProjects/2DSpaceShooter/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.2D.Tilemap.Editor.csproj">
-      <Project>{C960A20B-3D48-B2EF-C3AB-1539059EB8E2}</Project>
+      <Project>{117FC080-63D3-5839-444F-52DE77CA0249}</Project>
       <Name>Unity.2D.Tilemap.Editor</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
-      <Project>{5977614A-BF12-577D-7A1F-CAEB63701156}</Project>
+      <Project>{E48C4CE0-0B64-9962-CDF8-FB68021E7387}</Project>
       <Name>Unity.2D.Sprite.Editor</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{E0C940FB-4DAE-45CC-984C-6575BFBFEF1A}</Project>
+      <Project>{A2B1E0A3-40FA-F2DE-ED8A-8CD0E43A5F31}</Project>
       <Name>UnityEditor.UI</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{2BD58159-094D-3DF8-60D4-E7982BBEBB1D}</Project>
+      <Project>{26741368-C37B-6EA5-57F7-A7B6486FA267}</Project>
       <Name>UnityEngine.UI</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
