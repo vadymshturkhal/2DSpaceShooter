@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{E0C940FB-4DAE-45CC-984C-6575BFBFEF1A}|Unit Tests">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ControllerReview.cs">
+    <Files>
+      <File FileName="Assets/Scripts/ControllerReview.cs" Line="52" Column="6" />
+      <File FileName="Assets/Scripts/ProjectileSpawner.cs" Line="27" Column="115" />
+      <File FileName="Assets/Scripts/MainProjectile.cs" Line="7" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.UnityEditor.UI PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
