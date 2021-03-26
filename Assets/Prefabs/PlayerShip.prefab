@@ -5179,6 +5179,6 @@ MonoBehaviour:
   maximumLives: 5
   invincibilityTime: 3
   isAlwaysInvincible: 0
-  useLives: 0
-  deathEffect: {fileID: 0}
+  useLives: 1
+  deathEffect: {fileID: 2646289778685549232, guid: 4841ffa644f6ab113839640bedc3e3d1, type: 3}
   hitEffect: {fileID: 0}

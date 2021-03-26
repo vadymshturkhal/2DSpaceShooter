@@ -184,7 +184,7 @@ MonoBehaviour:
   invincibilityTime: 3
   isAlwaysInvincible: 0
   useLives: 0
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 1211786327070044957, guid: 05793f2ee44ad0e0eb0e1f079ce97362, type: 3}
   hitEffect: {fileID: 0}
 --- !u!114 &745871995
 MonoBehaviour:

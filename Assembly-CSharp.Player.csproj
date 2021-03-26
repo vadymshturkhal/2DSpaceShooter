@@ -50,15 +50,17 @@
      <Compile Include="Assets\Scripts\Utils\ScreenUtils.cs" />
      <Compile Include="Assets\Scripts\ControllerReview.cs" />
      <Compile Include="Assets\Scripts\Projectiles\DefaultProjectile.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyRotational.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ProjectileSpawner.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyFollower.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\Utils\GameAudioSource.cs" />
      <Compile Include="Assets\Scripts\Utils\AudioClipName.cs" />
      <Compile Include="Assets\Scripts\Utils\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ProjectileHandler.cs" />
-     <Compile Include="Assets\Scripts\EnemyStationary.cs" />
-     <Compile Include="Assets\Scripts\EnemyRotational.cs" />
-     <Compile Include="Assets\Scripts\EnemyFollower.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyStationary.cs" />
+     <Compile Include="Assets\Scripts\Explosion.cs" />
+     <Compile Include="Assets\Scripts\Utils\Timer.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/home/vshturkhal/UnityEditor/2020.3.0f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/mono/Managed/UnityEngine.dll</HintPath>
  </Reference>

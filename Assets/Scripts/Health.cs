@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// FIXME 
+// Add invisibility
+// Add respawn
+// Add dead effect
+// Invisibility check may move to event
 
 // Include methods
 // SetRespawnPoint(Vector3 newRespawnPosition)
@@ -31,6 +36,7 @@ public class Health : MonoBehaviour
 
     float timeToBecomeDamagableAgain = 0;
     bool isInvincableFromDamage = false;
+
     Vector3 respawnPosition;
 
     void Start()
@@ -60,14 +66,16 @@ public class Health : MonoBehaviour
     {
         transform.position = respawnPosition;
         currentHealth = defaultHealth;
+        timeToBecomeDamagableAgain = Time.time + invincibilityTime;
+        isInvincableFromDamage = true;
     }
 
     public void ReceiveDamage(int amount)
     {
-        //if (isInvincableFromDamage || isAlwaysInvincible)
-        //{
-        //    return;
-        //}
+        if (isInvincableFromDamage || isAlwaysInvincible)
+        {
+            return;
+        }
 
         //if (hitEffect != null)
         //{
@@ -80,24 +88,23 @@ public class Health : MonoBehaviour
         CheckDeath();
     }
 
-    public void ReceiveHealing(int amount)
-    {
-        currentHealth += amount;
-        if (currentHealth > maximumHealth)
-        {
-            currentHealth = maximumHealth;
-        }
-        CheckDeath();
-    }
+    //public void ReceiveHealing(int amount)
+    //{
+    //    currentHealth += amount;
+    //    if (currentHealth > maximumHealth)
+    //    {
+    //        currentHealth = maximumHealth;
+    //    }
 
-    bool CheckDeath()
+    //    CheckDeath();
+    //}
+
+    void CheckDeath()
     {
         if (currentHealth <= 0)
         {
             Die();
-            return true;
         }
-        return false;
     }
 
     public void Die()
@@ -134,7 +141,7 @@ public class Health : MonoBehaviour
             //{
             //    gameObject.GetComponent<Enemy>().DoBeforeDestroy();
             //}
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -148,6 +155,6 @@ public class Health : MonoBehaviour
         //{
         //    gameObject.GetComponent<Enemy>().DoBeforeDestroy();
         //}
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
