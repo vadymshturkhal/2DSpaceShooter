@@ -6,7 +6,7 @@ public class ProjectileSpawner : MonoBehaviour
 {
     [Range(5f, 30f)]
     [SerializeField]
-    float ProjectileSpeed = 20f;
+    float ProjectileSpeed = 10f;
 
     [SerializeField]
     GameObject projectile;

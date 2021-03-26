@@ -5,8 +5,8 @@ using UnityEngine;
 public class ProjectileHandler : MonoBehaviour
 {
     [SerializeField]
-    [Range(0.01f, 0.5f)]
-    float TimeBetweenProjectiles = 0.05f;
+    [Range(0.15f, 1f)]
+    float TimeBetweenProjectiles = 0.15f;
 
     [SerializeField]
     AudioClipName projectileSound;

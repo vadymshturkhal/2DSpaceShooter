@@ -56,7 +56,9 @@
      <Compile Include="Assets\Scripts\Utils\AudioClipName.cs" />
      <Compile Include="Assets\Scripts\Utils\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ProjectileHandler.cs" />
-     <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\EnemyStationary.cs" />
+     <Compile Include="Assets\Scripts\EnemyRotational.cs" />
+     <Compile Include="Assets\Scripts\EnemyFollower.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/home/vshturkhal/UnityEditor/2020.3.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
