@@ -47,20 +47,24 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Explosion.cs" />
      <Compile Include="Assets\Scripts\Utils\ScreenUtils.cs" />
      <Compile Include="Assets\Scripts\ControllerReview.cs" />
      <Compile Include="Assets\Scripts\Projectiles\DefaultProjectile.cs" />
+     <Compile Include="Assets\Scripts\Events\InvisibilityEvent.cs" />
+     <Compile Include="Assets\Scripts\Utils\Timer.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyRotational.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ProjectileSpawner.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyFollower.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\Utils\GameAudioSource.cs" />
+     <Compile Include="Assets\Scripts\Events\EventManager.cs" />
      <Compile Include="Assets\Scripts\Utils\AudioClipName.cs" />
      <Compile Include="Assets\Scripts\Utils\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ProjectileHandler.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyStationary.cs" />
-     <Compile Include="Assets\Scripts\Explosion.cs" />
-     <Compile Include="Assets\Scripts\Utils\Timer.cs" />
+     <Compile Include="Assets\Scripts\Events\TimerAsync.cs" />
+     <Compile Include="Assets\Scripts\Events\TimerAsyncEvent.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/home/vshturkhal/UnityEditor/2020.3.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

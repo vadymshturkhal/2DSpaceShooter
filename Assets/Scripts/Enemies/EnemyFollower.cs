@@ -45,7 +45,6 @@ public class EnemyFollower : MonoBehaviour
 
         if (Vector3.Distance(from, to) <= minDistanceToTarget)
         {
-            print("Arrived to target");
             return;
         }
 

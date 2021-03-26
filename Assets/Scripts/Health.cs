@@ -1,19 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-// FIXME 
-// Add invisibility
-// Add respawn
-// Add dead effect
-// Invisibility check may move to event
+using UnityEngine.Events;
 
 // Include methods
 // SetRespawnPoint(Vector3 newRespawnPosition)
 // InvicibilityCheck()
 // Respawn()
 // ReceiveDamage(int amount)
-// ReceiveHealing(int amount)
 // CheckDeath()
 // Die()
 // HandleDeathWithLives()
@@ -39,27 +33,21 @@ public class Health : MonoBehaviour
 
     Vector3 respawnPosition;
 
-    void Start()
+    IEnumerator InvisibilityCoroutine(float duration)
     {
-        SetRespawnPoint(transform.position);
+        isInvincableFromDamage = true;
+        yield return new WaitForSeconds(duration);
+        isInvincableFromDamage = false;
     }
 
-    void FixedUpdate()
+    void StartInvisibility(float duration)
     {
-        InvincibilityCheck();
+
     }
 
     void SetRespawnPoint(Vector3 newRespawnPosition)
     {
         respawnPosition = newRespawnPosition;
-    }
-
-    void InvincibilityCheck()
-    {
-        if (timeToBecomeDamagableAgain <= Time.time)
-        {
-            isInvincableFromDamage = false;
-        }
     }
 
     void Respawn()
@@ -77,27 +65,9 @@ public class Health : MonoBehaviour
             return;
         }
 
-        //if (hitEffect != null)
-        //{
-        //    Instantiate(hitEffect, transform.position, transform.rotation, null);
-        //}
-
-        //timeToBecomeDamagableAgain = Time.time + invincibilityTime;
-        //isInvincableFromDamage = true;
         currentHealth -= amount;
         CheckDeath();
     }
-
-    //public void ReceiveHealing(int amount)
-    //{
-    //    currentHealth += amount;
-    //    if (currentHealth > maximumHealth)
-    //    {
-    //        currentHealth = maximumHealth;
-    //    }
-
-    //    CheckDeath();
-    //}
 
     void CheckDeath()
     {
@@ -114,47 +84,28 @@ public class Health : MonoBehaviour
             Instantiate(deathEffect, transform.position, transform.rotation, null);
         }
 
-        if (useLives)
-        {
-            HandleDeathWithLives();
-        }
-        else
-        {
-            HandleDeathWithoutLives();
-        }
+        HandleDeathWithLives(useLives);
     }
 
-    void HandleDeathWithLives()
+    void HandleDeathWithLives(bool lives)
     {
-        currentLives -= 1;
-        if (currentLives > 0)
+        if (lives)
         {
-            Respawn();
+            currentLives -= 1;
+            if (currentLives > 0)
+            {
+                Respawn();
+                StartCoroutine(InvisibilityCoroutine(invincibilityTime));
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
         else
         {
-            //if (gameObject.tag == "Player" && GameManager.instance != null)
-            //{
-            //    GameManager.instance.GameOver();
-            //}
-            //if (gameObject.GetComponent<Enemy>() != null)
-            //{
-            //    gameObject.GetComponent<Enemy>().DoBeforeDestroy();
-            //}
             Destroy(gameObject);
-        }
-    }
 
-    void HandleDeathWithoutLives()
-    {
-        //if (gameObject.tag == "Player" && GameManager.instance != null)
-        //{
-        //    GameManager.instance.GameOver();
-        //}
-        //if (gameObject.GetComponent<Enemy>() != null)
-        //{
-        //    gameObject.GetComponent<Enemy>().DoBeforeDestroy();
-        //}
-        Destroy(gameObject);
+        }
     }
 }
