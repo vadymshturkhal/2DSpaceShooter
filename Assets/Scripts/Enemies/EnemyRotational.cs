@@ -7,7 +7,7 @@ public class EnemyRotational : EnemyStationary
     const float epsilon = 0.1f;
 
     [SerializeField]
-    [Range(10, 60)]
+    [Range(10, 100)]
     int rotationalSpeed = 10;
     float currentSpeed;
     float angleBetweenEnemyAndTarget;

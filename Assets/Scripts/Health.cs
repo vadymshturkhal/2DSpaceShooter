@@ -1,17 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 // Include methods
+// InvisibilityCoroutine(float duration)
 // SetRespawnPoint(Vector3 newRespawnPosition)
-// InvicibilityCheck()
 // Respawn()
 // ReceiveDamage(int amount)
 // CheckDeath()
 // Die()
 // HandleDeathWithLives()
-// HandleDeathWithoutLives()
 
 public class Health : MonoBehaviour
 {
@@ -23,10 +21,11 @@ public class Health : MonoBehaviour
     float invincibilityTime = 3f;
 
     [SerializeField]
-    bool isAlwaysInvincible = false, useLives = false;
+    bool useLives = false;
 
     [SerializeField]
-    GameObject deathEffect, hitEffect;
+    GameObject deathEffect, hitEffect, invisibilityEffect;
+    GameObject invisibility;
 
     float timeToBecomeDamagableAgain = 0;
     bool isInvincableFromDamage = false;
@@ -36,13 +35,13 @@ public class Health : MonoBehaviour
     IEnumerator InvisibilityCoroutine(float duration)
     {
         isInvincableFromDamage = true;
+        invisibility = Instantiate(invisibilityEffect, transform.position, Quaternion.identity);
+        invisibility.transform.SetParent(gameObject.transform, true);
+
         yield return new WaitForSeconds(duration);
+
+        Destroy(invisibility);
         isInvincableFromDamage = false;
-    }
-
-    void StartInvisibility(float duration)
-    {
-
     }
 
     void SetRespawnPoint(Vector3 newRespawnPosition)
@@ -60,7 +59,7 @@ public class Health : MonoBehaviour
 
     public void ReceiveDamage(int amount)
     {
-        if (isInvincableFromDamage || isAlwaysInvincible)
+        if (isInvincableFromDamage)
         {
             return;
         }
