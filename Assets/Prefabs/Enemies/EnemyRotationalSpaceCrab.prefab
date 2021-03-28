@@ -178,7 +178,7 @@ MonoBehaviour:
   teamId: -1
   defaultHealth: 3
   currentHealth: 3
-  maximumHealth: 5
+  maximumHealth: 3
   currentLives: 3
   maximumLives: 5
   invincibilityTime: 3
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc4fb5be0df296e8adc9f44672ffcaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationalSpeed: 10
+  rotationalSpeed: 100
 --- !u!1001 &5029078290757256304
 PrefabInstance:
   m_ObjectHideFlags: 0
