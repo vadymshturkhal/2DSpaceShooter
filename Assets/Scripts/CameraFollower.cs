@@ -6,21 +6,23 @@ using UnityEngine.InputSystem;
 public class CameraFollower : MonoBehaviour
 {
     const float DefaultCameraZAxis = -10f;
+    const float MaxCameraDistanceFromPlayer = 5f;
 
     [SerializeField]
-    bool stationalFollower = true;
+    bool dynamicCamera = true;
     float step;
     float moveSpeed = 10f;
-    float minDistanceToTarget = 5f;
+    [SerializeField]
+    [Range(0, 0.75f)]
+    float freeCameraMouseTracking = 0.5f;
 
     [SerializeField]
     GameObject target;
 
     Vector3 cameraPosition;
     Vector3 mousePosition;
-    Vector3 from;
-    Vector3 to;
-
+    Vector3 desiredPosition;
+    Vector3 difference;
 
     void Awake()
     {
@@ -32,18 +34,20 @@ public class CameraFollower : MonoBehaviour
 
     void FixedUpdate()
     {
-        SetCameraPosition(stationalFollower);
+        SetCameraPosition(dynamicCamera);
     }
 
-    void SetCameraPosition(bool stational)
+    void SetCameraPosition(bool dynamic)
     {
-        cameraPosition = target.transform.position;
-        cameraPosition.z = DefaultCameraZAxis;
-        gameObject.transform.position = cameraPosition;
-
-        if (!stational)
+        if (!dynamic)
         {
-            SetCameraDynamicPosition(cameraPosition);
+            cameraPosition = target.transform.position;
+            cameraPosition.z = DefaultCameraZAxis;
+            transform.position = cameraPosition;
+        }
+        else
+        {
+            SetCameraDynamicPosition();
         }
     }
 
@@ -51,21 +55,17 @@ public class CameraFollower : MonoBehaviour
     {
         mousePosition = context.ReadValue<Vector2>();
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        difference = mousePosition - target.transform.position;
     }
 
-    void SetCameraDynamicPosition(Vector3 cameraPos)
+    void SetCameraDynamicPosition()
     {
-        print(Vector3.Distance(transform.position, mousePosition));
+        desiredPosition = Vector3.Lerp(target.transform.position, target.transform.position + difference, freeCameraMouseTracking);
 
-        step = moveSpeed * Time.deltaTime;
-        from = gameObject.transform.position;
-        to = mousePosition;
+        desiredPosition = desiredPosition - target.transform.position;
+        desiredPosition = target.transform.position + Vector3.ClampMagnitude(desiredPosition, MaxCameraDistanceFromPlayer);
 
-        if (Vector3.Distance(from, to) <= minDistanceToTarget)
-        {
-            return;
-        }
-
-        transform.position = Vector3.MoveTowards(from, to, step);
+        desiredPosition.z = DefaultCameraZAxis;
+        transform.position = desiredPosition;
     }
 }

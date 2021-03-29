@@ -20,17 +20,6 @@ public class ControllerReview : MonoBehaviour
         projectileHandler = projectile.GetComponent<ProjectileHandler>();
     }
 
-    void FixedUpdate()
-    {
-        LookAtMouse();
-    }
-
-
-    void LookAtMouse()
-    {
-        transform.up = mousePosition3D - transform.position;
-    }
-
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
