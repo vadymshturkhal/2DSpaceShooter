@@ -25,10 +25,9 @@ public class EnemyRotational : EnemyStationary
     protected override void Start()
     {
         base.Start();
-        projectileHandler.Fire(true);
     }
 
-    void FixedUpdate()
+    protected void FixedUpdate()
     {
         RotateToEnemy();
     }

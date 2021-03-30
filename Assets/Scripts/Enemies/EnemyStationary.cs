@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyStationary : MonoBehaviour
 {
     protected ProjectileHandler projectileHandler;
+
+    [SerializeField]
+    public int scoreValue = 1;
 
     virtual protected void Awake()
     {
@@ -16,5 +17,4 @@ public class EnemyStationary : MonoBehaviour
     {
         projectileHandler.Fire(true);
     }
-
 }

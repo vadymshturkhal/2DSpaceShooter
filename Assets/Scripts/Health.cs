@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 // Include methods
 // InvisibilityCoroutine(float duration)
@@ -13,24 +13,36 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int teamId = 0, defaultHealth = 3, currentHealth = 3, maximumHealth = 5; 
+    public int teamId = 0, defaultHealth = 3, currentHealth = 3, maximumHealth = 5;
     [SerializeField]
-    int currentLives = 3, maximumLives = 5;
+    int currentLives = 3, maximumLives = 5, score = 0;
 
     [SerializeField]
     float invincibilityTime = 3f;
+    float timeToBecomeDamagableAgain = 0;
 
     [SerializeField]
     bool useLives = false;
+    bool isInvincableFromDamage = false;
+    bool isEnemy = false;
 
     [SerializeField]
     GameObject deathEffect, hitEffect, invisibilityEffect;
     GameObject invisibility;
-
-    float timeToBecomeDamagableAgain = 0;
-    bool isInvincableFromDamage = false;
-
     Vector3 respawnPosition;
+    UnityAction<int> addScoreListener;
+    AddScoreEvent addScoreEvent;
+
+    void Awake()
+    {
+        if (gameObject.GetComponent<EnemyStationary>() != null)
+        {
+            isEnemy = true;
+            score = gameObject.GetComponent<EnemyStationary>().scoreValue;
+            addScoreEvent = new AddScoreEvent();
+            EventManager.AddScoreInvoker(this);
+        }
+    }
 
     IEnumerator InvisibilityCoroutine(float duration)
     {
@@ -103,8 +115,18 @@ public class Health : MonoBehaviour
         }
         else
         {
+            if (isEnemy)
+            {
+                addScoreEvent.Invoke(score);
+                addScoreEvent.RemoveListener(addScoreListener);
+            }
             Destroy(gameObject);
-
         }
+    }
+
+    public void AddScoreEventListener(UnityAction<int> listener)
+    {
+        addScoreListener = listener;
+        addScoreEvent.AddListener(listener);
     }
 }

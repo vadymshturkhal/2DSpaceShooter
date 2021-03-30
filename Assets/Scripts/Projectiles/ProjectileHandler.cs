@@ -18,7 +18,6 @@ public class ProjectileHandler : MonoBehaviour
 
     void Awake()
     {
-        projectileSpawner = GetComponent<ProjectileSpawner>();
         teamId = transform.parent.GetComponent<Health>().teamId;
         timeOut = TimeBetweenProjectiles;
     }
@@ -42,7 +41,12 @@ public class ProjectileHandler : MonoBehaviour
     {
         if (timeOut <= 0)
         {
-            projectileSpawner.SpawnProjectile(teamId);
+            foreach (Transform child in transform)
+            {
+                projectileSpawner = child.GetComponent<ProjectileSpawner>();
+                projectileSpawner.SpawnProjectile(teamId);
+            }
+
             timeOut = TimeBetweenProjectiles;
 
             AudioManager.Play(projectileSound);

@@ -10,8 +10,7 @@ public class EnemyFollower : MonoBehaviour
     [SerializeField]
     [Range(1f, 3f)]
     float minDistanceToTarget = 1f;
-    float step;
-
+    float moveStep;
 
     [SerializeField]
     GameObject target;
@@ -39,7 +38,7 @@ public class EnemyFollower : MonoBehaviour
             return;
         }
 
-        step = moveSpeed * Time.deltaTime;
+        moveStep = moveSpeed * Time.deltaTime;
         from = gameObject.transform.position;
         to = target.transform.position;
 
@@ -48,6 +47,6 @@ public class EnemyFollower : MonoBehaviour
             return;
         }
 
-        transform.position = Vector3.MoveTowards(from, to, step);
+        transform.position = Vector3.MoveTowards(from, to, moveStep);
     }
 }

@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{A2B1E0A3-40FA-F2DE-ED8A-8CD0E43A5F31}|Unit Tests">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CameraFollower.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Projectiles/ProjectileHandler.cs">
     <Files>
-      <File FileName="Assets/Scripts/Health.cs" Line="13" Column="1" />
-      <File FileName="Assets/Scripts/Events/EventManager.cs" Line="8" Column="5" />
-      <File FileName="Assets/Scripts/Events/TimerAsync.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ControllerReview.cs" Line="23" Column="1" />
-      <File FileName="Assets/Scripts/CameraFollower.cs" Line="61" Column="1" />
+      <File FileName="Assets/Scripts/Health.cs" Line="121" Column="1" />
+      <File FileName="Assets/Scripts/Canvas/Canvas.cs" Line="23" Column="1" />
+      <File FileName="Assets/Scripts/Utils/GameManager.cs" Line="36" Column="25" />
+      <File FileName="Assets/Scripts/Projectiles/ProjectileHandler.cs" Line="45" Column="34" />
+      <File FileName="Assets/Scripts/Projectiles/ProjectileSpawner.cs" Line="26" Column="64" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

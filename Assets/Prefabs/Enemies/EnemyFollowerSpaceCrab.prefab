@@ -182,6 +182,7 @@ MonoBehaviour:
   maximumHealth: 5
   currentLives: 3
   maximumLives: 5
+  score: 0
   invincibilityTime: 3
   useLives: 0
   deathEffect: {fileID: 1211786327070044957, guid: 05793f2ee44ad0e0eb0e1f079ce97362, type: 3}
@@ -199,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc4fb5be0df296e8adc9f44672ffcaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: 3
   rotationalSpeed: 50
 --- !u!114 &2484951813615118520
 MonoBehaviour:
@@ -266,6 +268,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -180
       objectReference: {fileID: 0}
+    - target: {fileID: 4146935262227927729, guid: bcadddf2a9d4197d589aa6d02e7c9c4c, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 4371520439529373975, guid: e7671786b54f972ab88425f15a3674cb, type: 3}
     - target: {fileID: 8694563053410901416, guid: bcadddf2a9d4197d589aa6d02e7c9c4c, type: 3}
       propertyPath: projectile
       value: 
