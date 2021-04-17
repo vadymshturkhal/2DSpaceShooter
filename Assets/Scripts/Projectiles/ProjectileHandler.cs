@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileHandler : MonoBehaviour
 {
     [SerializeField]
-    [Range(0.15f, 1f)]
+    [Range(0.06f, 1f)]
     float TimeBetweenProjectiles = 0.15f;
 
     [SerializeField]
@@ -14,12 +14,22 @@ public class ProjectileHandler : MonoBehaviour
     int teamId;
     float timeOut;
     bool firing;
-    ProjectileSpawner projectileSpawner;
+    ProjectileSpawner[] projectileSpawners;
 
     void Awake()
     {
         teamId = transform.parent.GetComponent<Health>().teamId;
         timeOut = TimeBetweenProjectiles;
+
+        projectileSpawners = new ProjectileSpawner[transform.childCount];
+
+        int i = 0;
+        foreach (Transform child in transform)
+        {
+            projectileSpawners[i] = child.GetComponent<ProjectileSpawner>();
+            i++;
+        }
+
     }
 
     void FixedUpdate()
@@ -41,10 +51,9 @@ public class ProjectileHandler : MonoBehaviour
     {
         if (timeOut <= 0)
         {
-            foreach (Transform child in transform)
+            foreach (ProjectileSpawner projectile in projectileSpawners)
             {
-                projectileSpawner = child.GetComponent<ProjectileSpawner>();
-                projectileSpawner.SpawnProjectile(teamId);
+                projectile.SpawnProjectile(teamId);
             }
 
             timeOut = TimeBetweenProjectiles;

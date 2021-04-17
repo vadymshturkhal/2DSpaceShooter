@@ -41,6 +41,11 @@ public class GameManager : MonoBehaviour
         ResetScore();
     }
 
+    void Start()
+    {
+
+    }
+
     public void AddScore(int scoreAmount)
     {
         

@@ -19,6 +19,8 @@ public class Canvas : MonoBehaviour
 
     void Start()
     {
+        CheckScore();
+
         scoreText = transform.Find("ScoreText").GetComponent<Text>();
         scoreText.text = "Score: " + score.ToString();
 
@@ -29,6 +31,39 @@ public class Canvas : MonoBehaviour
     void AddScore(int value)
     {
         score += value;
-        scoreText.text = "At Score: " + score.ToString();
+        PlayerPrefs.SetInt("score", score);
+        scoreText.text = "Score: " + score.ToString();
+    }
+
+    void CheckScore()
+    {
+        if (PlayerPrefs.HasKey("highscore"))
+        {
+            highScore = PlayerPrefs.GetInt("highscore");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("highscore", 0);
+        }
+
+        if (PlayerPrefs.HasKey("score"))
+        {
+            score = PlayerPrefs.GetInt("score");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("score", 0);
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        if (score > highScore)
+        {
+            highScore = score;
+        }
+
+        PlayerPrefs.SetInt("highscore", highScore);
+        PlayerPrefs.SetInt("score", 0);
     }
 }
