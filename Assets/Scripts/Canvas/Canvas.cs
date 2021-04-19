@@ -12,14 +12,10 @@ public class Canvas : MonoBehaviour
     int score = 0;
     int highScore = 0;
 
-    void Awake()
-    {
-        EventManager.AddScoreListener(AddScore);
-    }
-
     void Start()
     {
-        CheckScore();
+        ResetScore();
+        EventManager.AddScoreListener(AddScore);
 
         scoreText = transform.Find("ScoreText").GetComponent<Text>();
         scoreText.text = "Score: " + score.ToString();
@@ -31,6 +27,12 @@ public class Canvas : MonoBehaviour
     void AddScore(int value)
     {
         score += value;
+
+        if (CheckHighScore())
+        {
+            highScoreText.text = "High Score: " + highScore.ToString();
+        }
+
         PlayerPrefs.SetInt("score", score);
         scoreText.text = "Score: " + score.ToString();
     }
@@ -56,14 +58,26 @@ public class Canvas : MonoBehaviour
         }
     }
 
-    private void OnApplicationQuit()
+    bool CheckHighScore()
     {
         if (score > highScore)
         {
             highScore = score;
+            return true;
         }
 
-        PlayerPrefs.SetInt("highscore", highScore);
+        return false;
+    }
+
+    void ResetScore()
+    {
         PlayerPrefs.SetInt("score", 0);
+        PlayerPrefs.SetInt("highscore", 0);
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("score", 0);
+        PlayerPrefs.SetInt("highscore", highScore);
     }
 }

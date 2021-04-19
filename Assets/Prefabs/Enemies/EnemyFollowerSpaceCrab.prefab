@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5804111077850638514}
   - component: {fileID: 2194324216771913676}
   - component: {fileID: 3053832689726852466}
-  - component: {fileID: 7989793656334953376}
   - component: {fileID: 5482698945123367424}
   - component: {fileID: 2484951813615118520}
+  - component: {fileID: 5054570090707187195}
   m_Layer: 8
   m_Name: EnemyFollowerSpaceCrab
   m_TagString: Untagged
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1160939783
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1981481647227881137, guid: 78c80fc007bdeed409c072293dcce1c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -164,30 +164,6 @@ PolygonCollider2D:
       - {x: 0.42988372, y: 0.07067227}
       - {x: 0.43682837, y: 0.14506364}
       - {x: 0.4403417, y: 0.24401402}
---- !u!114 &7989793656334953376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5804111077850638513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eb39a15c42d9843c99678669726e84e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teamId: -1
-  defaultHealth: 3
-  currentHealth: 3
-  maximumHealth: 5
-  currentLives: 3
-  maximumLives: 5
-  score: 0
-  invincibilityTime: 3
-  useLives: 0
-  deathEffect: {fileID: 1211786327070044957, guid: 05793f2ee44ad0e0eb0e1f079ce97362, type: 3}
-  hitEffect: {fileID: 0}
-  invisibilityEffect: {fileID: 0}
 --- !u!114 &5482698945123367424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +193,23 @@ MonoBehaviour:
   moveSpeed: 1
   minDistanceToTarget: 1
   target: {fileID: 0}
+--- !u!114 &5054570090707187195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5804111077850638513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9176713854f5337309fd568bde25ab30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamId: 1
+  healthPoints: 9
+  deathEffect: {fileID: 1211786327070044957, guid: 05793f2ee44ad0e0eb0e1f079ce97362, type: 3}
+  hitEffect: {fileID: 0}
+  score: 3
 --- !u!1001 &7473356951842909398
 PrefabInstance:
   m_ObjectHideFlags: 0

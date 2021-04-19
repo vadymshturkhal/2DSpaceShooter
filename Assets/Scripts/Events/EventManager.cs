@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public static class EventManager
 {
-    static Queue<Health> addScoreInvokers = new Queue<Health>();
+    static Queue<HealthEnemy> addScoreInvokers = new Queue<HealthEnemy>();
     static UnityAction<int> addScoreListener;
 
     public static void AddScoreListener(UnityAction <int> listener)
@@ -17,7 +17,7 @@ public static class EventManager
         }
     }
 
-    public static void AddScoreInvoker(Health invoker)
+    public static void AddScoreInvoker(HealthEnemy invoker)
     {
         addScoreInvokers.Enqueue(invoker);
 

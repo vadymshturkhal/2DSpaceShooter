@@ -13,120 +13,44 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    public int teamId = 0, defaultHealth = 3, currentHealth = 3, maximumHealth = 5;
-    [SerializeField]
-    int currentLives = 3, maximumLives = 5, score = 0;
+    public int teamId = 0;
 
     [SerializeField]
-    float invincibilityTime = 3f;
-    float timeToBecomeDamagableAgain = 0;
+    protected int healthPoints = 5;
 
-    [SerializeField]
-    bool useLives = false;
-    bool isInvincableFromDamage = false;
-    bool isEnemy = false;
+    public GameObject deathEffect;
+    public GameObject hitEffect;
 
-    [SerializeField]
-    GameObject deathEffect, hitEffect, invisibilityEffect;
-    GameObject invisibility;
-    Vector3 respawnPosition;
-    UnityAction<int> addScoreListener;
-    AddScoreEvent addScoreEvent;
-
-    void Awake()
+    public void AddPoints(int amount)
     {
-        if (gameObject.GetComponent<EnemyStationary>() != null)
+        healthPoints += amount;
+    }
+
+    public virtual void TakePoints(int amount)
+    {
+        healthPoints -= amount;
+
+        if (hitEffect != null)
         {
-            isEnemy = true;
-            score = gameObject.GetComponent<EnemyStationary>().scoreValue;
-            addScoreEvent = new AddScoreEvent();
-            EventManager.AddScoreInvoker(this);
+            Instantiate(hitEffect, transform.position, transform.rotation, null);
         }
     }
 
-    IEnumerator InvisibilityCoroutine(float duration)
+    protected virtual bool IsNotAnyHP()
     {
-        isInvincableFromDamage = true;
-        invisibility = Instantiate(invisibilityEffect, transform.position, Quaternion.identity);
-        invisibility.transform.SetParent(gameObject.transform, true);
-
-        yield return new WaitForSeconds(duration);
-
-        Destroy(invisibility);
-        isInvincableFromDamage = false;
-    }
-
-    void SetRespawnPoint(Vector3 newRespawnPosition)
-    {
-        respawnPosition = newRespawnPosition;
-    }
-
-    void Respawn()
-    {
-        transform.position = respawnPosition;
-        currentHealth = defaultHealth;
-        timeToBecomeDamagableAgain = Time.time + invincibilityTime;
-        isInvincableFromDamage = true;
-    }
-
-    public void ReceiveDamage(int amount)
-    {
-        if (isInvincableFromDamage)
+        if (healthPoints <= 0)
         {
-            return;
+            return true;
         }
-
-        currentHealth -= amount;
-        CheckDeath();
+        return false;
     }
 
-    void CheckDeath()
-    {
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
-
-    public void Die()
+    protected virtual void Die()
     {
         if (deathEffect != null)
         {
             Instantiate(deathEffect, transform.position, transform.rotation, null);
         }
-
-        HandleDeathWithLives(useLives);
-    }
-
-    void HandleDeathWithLives(bool lives)
-    {
-        if (lives)
-        {
-            currentLives -= 1;
-            if (currentLives > 0)
-            {
-                Respawn();
-                StartCoroutine(InvisibilityCoroutine(invincibilityTime));
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
-        else
-        {
-            if (isEnemy)
-            {
-                addScoreEvent.Invoke(score);
-                addScoreEvent.RemoveListener(addScoreListener);
-            }
-            Destroy(gameObject);
-        }
-    }
-
-    public void AddScoreEventListener(UnityAction<int> listener)
-    {
-        addScoreListener = listener;
-        addScoreEvent.AddListener(listener);
+        Destroy(gameObject);
     }
 }

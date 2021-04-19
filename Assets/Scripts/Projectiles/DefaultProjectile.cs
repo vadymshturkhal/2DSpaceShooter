@@ -5,6 +5,7 @@ using UnityEngine;
 public class DefaultProjectile : MonoBehaviour
 {
     public int teamId = 0;
+    public int projectileDamage = 1;
     Health triggeredGameObjectHealth;
 
     void OnBecameInvisible()
@@ -19,7 +20,7 @@ public class DefaultProjectile : MonoBehaviour
         {
             if (triggeredGameObjectHealth.teamId != teamId)
             {
-                triggeredGameObjectHealth.ReceiveDamage(1);
+                triggeredGameObjectHealth.TakePoints(projectileDamage);
                 Destroy(gameObject);
             }
         }
