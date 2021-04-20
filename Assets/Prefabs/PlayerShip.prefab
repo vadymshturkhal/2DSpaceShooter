@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2200638245365170637}
   - component: {fileID: 7854696821320985054}
   - component: {fileID: 6708011028217102994}
-  - component: {fileID: 7854696821320985053}
   - component: {fileID: 6634470456126964290}
   - component: {fileID: 1305094357}
   m_Layer: 7
@@ -162,18 +161,6 @@ PolygonCollider2D:
       - {x: 0.71875, y: -0.71875}
       - {x: 0.71875, y: -0.46875}
       - {x: 0.34375, y: 0.71875}
---- !u!114 &7854696821320985053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8288458293755281411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bab4a2cc802934cbd95eafd9199afbed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6634470456126964290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +189,6 @@ MonoBehaviour:
   healthPoints: 20
   deathEffect: {fileID: 0}
   hitEffect: {fileID: 0}
-  defaultHealthPoints: 5
   lives: 2
   invincibilityTime: 3
 --- !u!1001 &1103665355
@@ -259,6 +245,10 @@ PrefabInstance:
     - target: {fileID: 4058943307407418529, guid: aa6d37ee1a4131f4e81520f2c2f6202b, type: 3}
       propertyPath: m_Name
       value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058943307407418529, guid: aa6d37ee1a4131f4e81520f2c2f6202b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa6d37ee1a4131f4e81520f2c2f6202b, type: 3}
