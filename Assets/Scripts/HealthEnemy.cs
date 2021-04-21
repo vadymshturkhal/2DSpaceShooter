@@ -31,7 +31,6 @@ public class HealthEnemy : Health
     void Die()
     {
         addScoreEvent.Invoke(score);
-        print(score);
         base.Die();
     }
 

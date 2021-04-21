@@ -19,27 +19,38 @@ public class GameManager : MonoBehaviour
     int highScore = 0;
 
     public bool isPaused = false;
-    string thePauseScreenIsHere = "Canvas";
-    string pausePathInHierarchy = "PauseScreen";
+    string allScreensPath = "Canvas";
+    string pausePath = "PauseScreen";
+    string gameOverPath = "GameOverScreen";
 
     [SerializeField]
     GameObject gameVictoryEffect, gameOverEffect;
     GameObject pauseScreen;
+    GameObject gameOverScreen;
     PlayerController controller;
 
     void Start()
     {
         controller = GetComponent<PlayerController>();
+        pauseScreen = InitializeScreen(pausePath);
+        gameOverScreen = InitializeScreen(gameOverPath);
 
-        pauseScreen = GameObject.Find(thePauseScreenIsHere);
-        Transform pause = pauseScreen.transform.Find(pausePathInHierarchy);
-        if (pause != null)
+        EventManager.AddGameOverListener(GameOverScreen);
+    }
+
+    GameObject InitializeScreen(string pathToScreen)
+    {
+        GameObject tmp = GameObject.Find(allScreensPath);
+
+        Transform tmpTransform = tmp.transform.Find(pathToScreen);
+        if (tmpTransform != null)
         {
-            pauseScreen = pause.gameObject;
+            return tmpTransform.gameObject;
         }
         else
         {
             Debug.LogError("Pause Screen not set to the Game Manager");
+            return null;
         }
     }
 
@@ -47,15 +58,20 @@ public class GameManager : MonoBehaviour
     {
         if (context.started)
         {
-            RevertPause();
+            RevertPause(pauseScreen);
         }
     }
 
-    void RevertPause()
+    void GameOverScreen()
+    {
+        RevertPause(gameOverScreen);
+    }
+
+    void RevertPause(GameObject screenToShow)
     {
         isPaused = !isPaused;
         controller.paused = isPaused;
-        pauseScreen.SetActive(isPaused);
+        screenToShow.SetActive(isPaused);
 
         if (isPaused)
         {
@@ -67,14 +83,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("_MainMenu");
-        // SceneManager.UnloadSceneAsync("Level1");
-    }
-
     public void ToGame()
     {
-        RevertPause();
+        RevertPause(pauseScreen);
     }
 }

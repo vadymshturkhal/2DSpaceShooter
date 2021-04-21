@@ -7,8 +7,14 @@ public class Scenes : MonoBehaviour
 {
     public void NewGame()
     {
+        SceneManager.LoadScene("_MainMenu");
         SceneManager.LoadScene("Level1");
         Time.timeScale = 1;
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("_MainMenu");
     }
 
     public void ExitGame()

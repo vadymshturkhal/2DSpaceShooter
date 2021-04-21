@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Canvas : MonoBehaviour
+public class CanvasManager : MonoBehaviour
 {
-    AddScoreEvent addScoreEvent;
     Text scoreText;
     Text highScoreText;
 

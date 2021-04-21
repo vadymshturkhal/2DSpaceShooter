@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2200638245365170637}
   - component: {fileID: 7854696821320985054}
   - component: {fileID: 6708011028217102994}
-  - component: {fileID: 6634470456126964290}
   - component: {fileID: 1305094357}
   m_Layer: 7
   m_Name: PlayerShip
@@ -161,18 +160,6 @@ PolygonCollider2D:
       - {x: 0.71875, y: -0.71875}
       - {x: 0.71875, y: -0.46875}
       - {x: 0.34375, y: 0.71875}
---- !u!114 &6634470456126964290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8288458293755281411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06a0c7d58f9c33475ae47af969cfbaa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1305094357
 MonoBehaviour:
   m_ObjectHideFlags: 0

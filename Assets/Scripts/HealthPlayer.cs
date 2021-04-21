@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthPlayer : Health
 {
@@ -16,11 +17,16 @@ public class HealthPlayer : Health
     bool isInvincableFromDamage = false;
 
     GameObject invisibilityEffect;
+    GameOverEvent gameOverEvent;
+    UnityAction gameOverListener;
 
     void Start()
     {
         defaultHealthPoints = healthPoints;
         invisibilityEffect = transform.Find("Shield").gameObject;
+
+        gameOverEvent = new GameOverEvent();
+        EventManager.AddGameOverInvoker(this);
     }
 
     public override void TakePoints(int amount)
@@ -37,7 +43,8 @@ public class HealthPlayer : Health
             lives -= 1;
             if (lives <= 0)
             {
-                Die();
+                // Die();
+                gameOverEvent.Invoke();
             }
             else
             {
@@ -65,14 +72,13 @@ public class HealthPlayer : Health
 
     void Die()
     {
+        gameOverEvent.Invoke();
         base.Die();
+    }
 
-        // #if UNITY_EDITOR
-        //     UnityEditor.EditorApplication.isPlaying = false;
-        // #elif UNITY_WEBPLAYER
-        //     Application.OpenURL(webplayerQuitURL);
-        // #else
-        //     Application.Quit();
-        // #endif
+    public void AddGameOverListener(UnityAction listener)
+    {
+        gameOverListener = listener;
+        gameOverEvent.AddListener(listener);
     }
 }
