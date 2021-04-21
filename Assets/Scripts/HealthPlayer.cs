@@ -67,12 +67,12 @@ public class HealthPlayer : Health
     {
         base.Die();
 
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #elif UNITY_WEBPLAYER
-            Application.OpenURL(webplayerQuitURL);
-        #else
-            Application.Quit();
-        #endif
+        // #if UNITY_EDITOR
+        //     UnityEditor.EditorApplication.isPlaying = false;
+        // #elif UNITY_WEBPLAYER
+        //     Application.OpenURL(webplayerQuitURL);
+        // #else
+        //     Application.Quit();
+        // #endif
     }
 }
