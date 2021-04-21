@@ -2,15 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Include methods
-// InvisibilityCoroutine(float duration)
-// SetRespawnPoint(Vector3 newRespawnPosition)
-// Respawn()
-// ReceiveDamage(int amount)
-// CheckDeath()
-// Die()
-// HandleDeathWithLives()
-
 public class Health : MonoBehaviour
 {
     public int teamId = 0;

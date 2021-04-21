@@ -12,7 +12,7 @@ public class Canvas : MonoBehaviour
     int score = 0;
     int highScore = 0;
 
-    void Start()
+    void Awake()
     {
         ResetScore();
         EventManager.AddScoreListener(AddScore);

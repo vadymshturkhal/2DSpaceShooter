@@ -13,6 +13,7 @@ public static class EventManager
         addScoreListener = listener;
         while (addScoreInvokers.Count != 0)
         {
+            Debug.Log("EventManagerAddScoreListener While");
             addScoreInvokers.Dequeue().AddScoreEventListener(addScoreListener);
         }
     }
@@ -25,6 +26,8 @@ public static class EventManager
         {
             while (addScoreInvokers.Count != 0)
             {
+                Debug.Log("EventManagerAddScoreInvoker While");
+
                 addScoreInvokers.Dequeue().AddScoreEventListener(addScoreListener);
             }
         }

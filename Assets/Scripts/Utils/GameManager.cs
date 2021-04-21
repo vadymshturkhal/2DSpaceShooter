@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
     int highScore = 0;
 
     public bool isPaused = false;
-    string pausePathInHierarchy = "Canvas/PauseScreen";
+    string thePauseScreenIsHere = "Canvas";
+    string pausePathInHierarchy = "PauseScreen";
 
     [SerializeField]
     GameObject gameVictoryEffect, gameOverEffect;
@@ -30,7 +31,8 @@ public class GameManager : MonoBehaviour
     {
         controller = GetComponent<PlayerController>();
 
-        Transform pause = transform.Find(pausePathInHierarchy);
+        pauseScreen = GameObject.Find(thePauseScreenIsHere);
+        Transform pause = pauseScreen.transform.Find(pausePathInHierarchy);
         if (pause != null)
         {
             pauseScreen = pause.gameObject;
@@ -41,28 +43,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Description:
-    /// Standard Unity function that gets called when the application (or playmode) ends
-    /// Input:
-    /// none
-    /// Return:
-    /// void (no return)
-    /// </summary>
-    void OnApplicationQuit()
-    {
-        SaveHighScore();
-        ResetScore();
-    }
-
     public void PauseScreen(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            isPaused = !isPaused;
-            controller.paused = isPaused;
-            pauseScreen.SetActive(isPaused);
+            RevertPause();
         }
+    }
+
+    void RevertPause()
+    {
+        isPaused = !isPaused;
+        controller.paused = isPaused;
+        pauseScreen.SetActive(isPaused);
 
         if (isPaused)
         {
@@ -74,29 +67,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ResetScore()
+    public void MainMenu()
     {
-
+        SceneManager.LoadScene("_MainMenu");
+        // SceneManager.UnloadSceneAsync("Level1");
     }
 
-    public void SaveHighScore()
+    public void ToGame()
     {
-        
-    }
-
-
-    public void GameVictory()
-    {
-
-    }
-
-    public void ClearLevel()
-    {
-           
-    }
-
-    public void GameOver()
-    {
-        
+        RevertPause();
     }
 }

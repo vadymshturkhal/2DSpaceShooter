@@ -18,6 +18,12 @@ public static class AudioManager
     public static void Initialize(AudioSource source)
     {
         audioSource = source;
+
+        if (audioClips.Count != 0)
+        {
+            return;
+        }
+
         audioClips.Add(AudioClipName.PlayerDefaultFire, 
             Resources.Load<AudioClip>("Audio/PlayerFire"));
         audioClips.Add(AudioClipName.EnemyDefaultFire,
