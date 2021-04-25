@@ -8,6 +8,7 @@ TagManager:
   - ProjectileHandler
   - PauseScreen
   - Canvas
+  - TimerDelegate
   layers:
   - Default
   - TransparentFX

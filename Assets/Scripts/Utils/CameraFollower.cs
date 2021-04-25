@@ -55,7 +55,11 @@ public class CameraFollower : MonoBehaviour
     {
         mousePosition = context.ReadValue<Vector2>();
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        difference = mousePosition - target.transform.position;
+
+        if (target != null)
+        {
+            difference = mousePosition - target.transform.position;
+        }
     }
 
     void SetCameraDynamicPosition()

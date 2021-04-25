@@ -47,16 +47,16 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CameraFollower.cs" />
+     <Compile Include="Assets\Scripts\Utils\CameraFollower.cs" />
      <Compile Include="Assets\Scripts\Explosion.cs" />
      <Compile Include="Assets\Scripts\Shield.cs" />
+     <Compile Include="Assets\Scripts\Utils\MainMenuScenes.cs" />
      <Compile Include="Assets\Scripts\Utils\ScreenUtils.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Projectiles\DefaultProjectile.cs" />
-     <Compile Include="Assets\Scripts\SceneManager.cs" />
      <Compile Include="Assets\Scripts\Utils\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Events\InvisibilityEvent.cs" />
      <Compile Include="Assets\Scripts\Utils\Timer.cs" />
+     <Compile Include="Assets\Scripts\Events\GameOverEvent.cs" />
      <Compile Include="Assets\Scripts\HealthPlayer.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyRotational.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ProjectileSpawner.cs" />
@@ -66,12 +66,12 @@
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\Utils\GameAudioSource.cs" />
      <Compile Include="Assets\Scripts\Events\EventManager.cs" />
+     <Compile Include="Assets\Scripts\Scenes.cs" />
      <Compile Include="Assets\Scripts\Utils\AudioClipName.cs" />
      <Compile Include="Assets\Scripts\Utils\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ProjectileHandler.cs" />
-     <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyStationary.cs" />
-     <Compile Include="Assets\Scripts\Canvas\Canvas.cs" />
+     <Compile Include="Assets\Scripts\Canvas\CanvasManager.cs" />
      <Compile Include="Assets\Scripts\HealthEnemy.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/home/vshturkhal/UnityEditor/2020.3.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
