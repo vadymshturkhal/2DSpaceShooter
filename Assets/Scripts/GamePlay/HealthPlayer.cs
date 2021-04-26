@@ -35,10 +35,25 @@ public class HealthPlayer : Health
         StartCoroutine(InvisibilityCoroutine(invincibilityTime));
     }
 
-    void Die()
+    void DestroyAfterAnim()
+    {
+        if (deathEffect == null)
+        {
+            return;
+        }
+
+        deathEffect = Instantiate(deathEffect, gameObject.transform.position, Quaternion.identity);
+        Animator anim = deathEffect.GetComponent<Animator>();
+        float len = anim.GetCurrentAnimatorStateInfo(0).length;
+
+        TimerDelegate timerDelegate = GameObject.FindGameObjectWithTag("TimerDelegate").GetComponent<TimerDelegate>();
+        timerDelegate.InitializeTimer(len, Destruct);
+        gameObject.SetActive(false);
+    }
+
+    void Destruct()
     {
         gameOverEvent.Invoke();
-        base.Die();
     }
 
     public override void TakePoints(int amount)
@@ -55,8 +70,8 @@ public class HealthPlayer : Health
             lives -= 1;
             if (lives <= 0)
             {
-                // Die();
-                gameOverEvent.Invoke();
+                // gameOverEvent.Invoke();
+                DestroyAfterAnim();
             }
             else
             {

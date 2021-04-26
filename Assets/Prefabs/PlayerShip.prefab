@@ -173,10 +173,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamId: 0
-  healthPoints: 20
-  deathEffect: {fileID: 0}
+  healthPoints: 10
+  deathEffect: {fileID: 2646289778685549232, guid: 4841ffa644f6ab113839640bedc3e3d1, type: 3}
   hitEffect: {fileID: 0}
-  lives: 2
+  lives: 1
   invincibilityTime: 3
 --- !u!1001 &1103665355
 PrefabInstance:

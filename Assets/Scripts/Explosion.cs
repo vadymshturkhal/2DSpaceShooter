@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    Animator anim;
-    TimerDelegate timerDelegate;
-
     void Start()
     {
-        anim = GetComponent<Animator>();
+        DestroyAfterAnim();
+    }
+
+    void DestroyAfterAnim()
+    {
+        Animator anim = GetComponent<Animator>();
         float len = anim.GetCurrentAnimatorStateInfo(0).length;
 
-        timerDelegate = GameObject.FindGameObjectWithTag("TimerDelegate").GetComponent<TimerDelegate>();
+        TimerDelegate timerDelegate = GameObject.FindGameObjectWithTag("TimerDelegate").GetComponent<TimerDelegate>();
         timerDelegate.InitializeTimer(len, Destruct);
     }
 
