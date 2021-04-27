@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyRotational : EnemyStationary
 {
-    const float epsilon = 0.1f;
+    const float epsilon = 0.02f;
 
     [SerializeField]
     [Range(10, 100)]

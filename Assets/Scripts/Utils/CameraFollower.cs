@@ -11,7 +11,6 @@ public class CameraFollower : MonoBehaviour
     [SerializeField]
     bool dynamicCamera = true;
     float step;
-    float moveSpeed = 10f;
     [SerializeField]
     [Range(0, 0.75f)]
     float freeCameraMouseTracking = 0.5f;
