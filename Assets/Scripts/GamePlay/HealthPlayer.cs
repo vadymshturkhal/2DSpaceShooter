@@ -5,20 +5,30 @@ using UnityEngine.Events;
 
 public class HealthPlayer : Health
 {
-    int defaultHealthPoints;
+    const float MaxRedColor = 1;
 
     [SerializeField]
     int lives = 1;
     int maximumLives = 5;
+    int defaultHealthPoints;
 
     [SerializeField]
     float invincibilityTime = 3f;
+    float colorRedIncrementStep;
+
+    float red;
+    float tempRed;
+    float green;
+    float blue;
+    float alpha;
 
     bool isInvincableFromDamage = false;
 
     GameObject invisibilityEffect;
     GameOverEvent gameOverEvent;
     UnityAction gameOverListener;
+
+    SpriteRenderer playerSpriteRenderer;
 
     void Start()
     {
@@ -27,6 +37,8 @@ public class HealthPlayer : Health
 
         gameOverEvent = new GameOverEvent();
         EventManager.AddGameOverInvoker(this);
+
+        InitRGB();
     }
 
     void Respawn()
@@ -62,6 +74,8 @@ public class HealthPlayer : Health
         {
             return;
         }
+
+        IncrementRedComponent(colorRedIncrementStep);
 
         base.TakePoints(amount);
 
@@ -107,5 +121,30 @@ public class HealthPlayer : Health
     {
         gameOverListener = listener;
         gameOverEvent.AddListener(listener);
+    }
+
+    void InitRGB()
+    {
+        playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        colorRedIncrementStep = (float)(MaxRedColor - playerSpriteRenderer.color.r) / defaultHealthPoints;
+
+        red = playerSpriteRenderer.color.r;
+        green = playerSpriteRenderer.color.g;
+        blue = playerSpriteRenderer.color.b;
+        alpha = playerSpriteRenderer.color.a;
+
+        tempRed = red;
+    }
+
+    void IncrementRedComponent(float value)
+    {
+        tempRed += value;
+
+        if (tempRed > MaxRedColor)
+        {
+            return;
+        }
+
+        playerSpriteRenderer.color = new Color(tempRed, green, blue, alpha);
     }
 }
