@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     int highScore = 0;
 
     public bool isPaused = false;
+    bool isGameOver;
     string allScreensPath = "Canvas";
     string pausePath = "PauseScreen";
     string gameOverPath = "GameOverScreen";
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     public void PauseScreen(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && !isGameOver)
         {
             RevertPause(pauseScreen);
         }
@@ -64,7 +65,16 @@ public class GameManager : MonoBehaviour
 
     void GameOverScreen()
     {
-        RevertPause(gameOverScreen);
+        isGameOver = true;
+        if (isPaused)
+        {
+            pauseScreen.SetActive(false);
+            gameOverScreen.SetActive(true);
+        }
+        else
+        {
+            RevertPause(gameOverScreen);
+        }
     }
 
     void RevertPause(GameObject screenToShow)

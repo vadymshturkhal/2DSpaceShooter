@@ -51,7 +51,7 @@
      <Compile Include="Assets\Scripts\Explosion.cs" />
      <Compile Include="Assets\Scripts\GamePlay\Shield.cs" />
      <Compile Include="Assets\Scripts\Utils\MainMenuScenes.cs" />
-     <Compile Include="Assets\Scripts\GamePlay\EnemySpawner.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\Utils\ScreenUtils.cs" />
      <Compile Include="Assets\Scripts\GamePlay\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Projectiles\DefaultProjectile.cs" />

@@ -70,7 +70,6 @@ public class HealthPlayer : Health
             lives -= 1;
             if (lives <= 0)
             {
-                // gameOverEvent.Invoke();
                 DestroyAfterAnim();
             }
             else
