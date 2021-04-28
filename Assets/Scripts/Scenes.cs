@@ -29,4 +29,16 @@ public class Scenes : MonoBehaviour
             Application.Quit();
         #endif
     }
+
+    public void Level2()
+    {
+        SceneManager.LoadScene("Level2");
+        Time.timeScale = 1;
+    }
+
+    public void Level3()
+    {
+        SceneManager.LoadScene("Level3");
+        Time.timeScale = 1;
+    }
 }

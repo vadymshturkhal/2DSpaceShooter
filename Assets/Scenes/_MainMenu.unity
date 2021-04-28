@@ -1485,42 +1485,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3039292292925807924, guid: 4355be069ba8200489f6da2e9808eb66, type: 3}
-      propertyPath: m_Name
-      value: NewGameButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039292292925807927, guid: 4355be069ba8200489f6da2e9808eb66, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039292292925807927, guid: 4355be069ba8200489f6da2e9808eb66, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039292292925807927, guid: 4355be069ba8200489f6da2e9808eb66, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3556914008347836745, guid: 8267671f130f25d06adcf45bd6827ce8, type: 3}
-    - target: {fileID: 3039292292925807927, guid: 4355be069ba8200489f6da2e9808eb66, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039292292925807927, guid: 4355be069ba8200489f6da2e9808eb66, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NewGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039292292925807927, guid: 4355be069ba8200489f6da2e9808eb66, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Scenes, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039292292925807927, guid: 4355be069ba8200489f6da2e9808eb66, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039292293279675133, guid: 4355be069ba8200489f6da2e9808eb66, type: 3}
-      propertyPath: m_Text
-      value: New Game
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4355be069ba8200489f6da2e9808eb66, type: 3}
 --- !u!1001 &3224074712599672378

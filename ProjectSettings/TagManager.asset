@@ -9,6 +9,7 @@ TagManager:
   - PauseScreen
   - Canvas
   - TimerDelegate
+  - GameManager
   layers:
   - Default
   - TransparentFX

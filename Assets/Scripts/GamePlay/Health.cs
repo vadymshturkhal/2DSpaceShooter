@@ -10,7 +10,6 @@ public class Health : MonoBehaviour
     protected int healthPoints = 5;
 
     public GameObject deathEffect;
-    public GameObject hitEffect;
 
     public void AddPoints(int amount)
     {
@@ -20,11 +19,6 @@ public class Health : MonoBehaviour
     public virtual void TakePoints(int amount)
     {
         healthPoints -= amount;
-
-        if (hitEffect != null)
-        {
-            Instantiate(hitEffect, transform.position, transform.rotation, null);
-        }
     }
 
     protected virtual bool IsNotAnyHP()

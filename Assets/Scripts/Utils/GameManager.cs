@@ -14,20 +14,20 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     // The highest score obtained by this player
-    [Tooltip("The highest score acheived on this device")]
-    [SerializeField]
-    int highScore = 0;
+    const string AllScreensPath = "Canvas";
+    const float VictoryScreenTimeOut = 2f;
 
-    public bool isPaused = false;
     bool isGameOver;
-    string allScreensPath = "Canvas";
+    bool isPaused = false;
+
+    int enemiesQuantity = 0;
     string pausePath = "PauseScreen";
     string gameOverPath = "GameOverScreen";
+    string levelCompletedPath = "LevelCompletedScreen";
 
-    [SerializeField]
-    GameObject gameVictoryEffect, gameOverEffect;
     GameObject pauseScreen;
     GameObject gameOverScreen;
+    GameObject levelCompletedScreen;
     PlayerController controller;
 
     void Start()
@@ -35,13 +35,14 @@ public class GameManager : MonoBehaviour
         controller = GetComponent<PlayerController>();
         pauseScreen = InitializeScreen(pausePath);
         gameOverScreen = InitializeScreen(gameOverPath);
+        levelCompletedScreen = InitializeScreen(levelCompletedPath);
 
         EventManager.AddGameOverListener(GameOverScreen);
     }
 
     GameObject InitializeScreen(string pathToScreen)
     {
-        GameObject tmp = GameObject.Find(allScreensPath);
+        GameObject tmp = GameObject.Find(AllScreensPath);
 
         Transform tmpTransform = tmp.transform.Find(pathToScreen);
         if (tmpTransform != null)
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Pause Screen not set to the Game Manager");
+            Debug.LogError(pathToScreen + " not set to the " + AllScreensPath);
             return null;
         }
     }
@@ -96,5 +97,32 @@ public class GameManager : MonoBehaviour
     public void ToGame()
     {
         RevertPause(pauseScreen);
+    }
+
+    public void EnemyController(bool addEnemy, int quantity)
+    {
+        if (addEnemy)
+        {
+            enemiesQuantity += quantity;
+        }
+        else
+        {
+            enemiesQuantity -= quantity;
+            if (enemiesQuantity <= 0)
+            {
+                LevelCompletedScreenTimeOut();
+            }
+        }
+    }
+
+    void LevelCompletedScreen()
+    {
+        RevertPause(levelCompletedScreen);
+    }
+
+    void LevelCompletedScreenTimeOut()
+    {
+        TimerDelegate timerDelegate = GameObject.FindGameObjectWithTag("TimerDelegate").GetComponent<TimerDelegate>();
+        timerDelegate.InitializeTimer(VictoryScreenTimeOut, LevelCompletedScreen);
     }
 }

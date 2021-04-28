@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField]
     GameObject enemy;
+    GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +25,16 @@ public class EnemySpawner : MonoBehaviour
         }
 
         SpawnEnemies();
+
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        gameManager.EnemyController(true, quantityForSpawn);
     }
 
     void SpawnEnemy()
     {
         if (enemy != null)
         {
-            Instantiate(enemy, transform.position, Quaternion.identity);
+            Instantiate(enemy, transform.position, Quaternion.identity).gameObject.transform.SetParent(gameObject.transform);
         }
     }
 
@@ -43,5 +47,16 @@ public class EnemySpawner : MonoBehaviour
             timer.InitializeTimer(tempTime, SpawnEnemy);
             tempTime += timeBetweenSpawn;
         }
+    }
+
+    public void ReduceQuantityOfEnemies()
+    {
+        if (quantityForSpawn <= 0)
+        {
+            return;
+        }
+
+        quantityForSpawn -= 1;
+        gameManager.EnemyController(false, 1);
     }
 }

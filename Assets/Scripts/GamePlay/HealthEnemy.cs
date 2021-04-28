@@ -10,12 +10,15 @@ public class HealthEnemy : Health
 
     AddScoreEvent addScoreEvent;
     UnityAction<int> addScoreListener;
+    GameObject parent;
 
     void Start()
     {
         score = gameObject.GetComponent<EnemyStationary>().scoreValue;
         addScoreEvent = new AddScoreEvent();
         EventManager.AddScoreInvoker(this);
+
+        parent = gameObject.transform.parent.gameObject;
     }
 
     public override void TakePoints(int amount)
@@ -24,14 +27,18 @@ public class HealthEnemy : Health
 
         if (IsNotAnyHP())
         {
-            Die();
+            if (parent != null)
+            {
+                parent.GetComponent<EnemySpawner>().ReduceQuantityOfEnemies();
+            }
+            DieWithEvent();
         }
     }
 
-    void Die()
+    void DieWithEvent()
     {
         addScoreEvent.Invoke(score);
-        base.Die();
+        Die();
     }
 
     public void AddScoreEventListener(UnityAction<int> listener)
