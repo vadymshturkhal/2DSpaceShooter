@@ -13,7 +13,7 @@ public class CanvasManager : MonoBehaviour
 
     void Awake()
     {
-        ResetScore();
+        // ResetScore();
         EventManager.AddScoreListener(AddScore);
 
         scoreText = transform.Find("ScoreText").GetComponent<Text>();

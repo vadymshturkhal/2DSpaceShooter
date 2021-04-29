@@ -9,11 +9,12 @@ public class EnemySpawner : MonoBehaviour
     int quantityForSpawn = 1;
     [SerializeField]
     float timeBetweenSpawn = 1;
-    TimerDelegate timer;
 
     [SerializeField]
     GameObject enemy;
     GameManager gameManager;
+
+    TimerDelegate timer;
 
     // Start is called before the first frame update
     void Start()
