@@ -24,10 +24,22 @@ public static class AudioManager
             return;
         }
 
-        audioClips.Add(AudioClipName.PlayerDefaultFire, 
-            Resources.Load<AudioClip>("Audio/PlayerFire"));
         audioClips.Add(AudioClipName.EnemyDefaultFire,
             Resources.Load<AudioClip>("Audio/EnemyFire"));
+        audioClips.Add(AudioClipName.EnemyExplode,
+            Resources.Load<AudioClip>("Audio/EnemyExplode"));
+        audioClips.Add(AudioClipName.EnemyHit,
+            Resources.Load<AudioClip>("Audio/EnemyHit"));
+        audioClips.Add(AudioClipName.PlayerDefaultFire, 
+            Resources.Load<AudioClip>("Audio/PlayerFire"));
+        audioClips.Add(AudioClipName.PlayerExplode,
+            Resources.Load<AudioClip>("Audio/PlayerExplode"));
+        audioClips.Add(AudioClipName.PlayerHit,
+            Resources.Load<AudioClip>("Audio/PlayerHit"));
+        audioClips.Add(AudioClipName.PauseSound,
+            Resources.Load<AudioClip>("Audio/PauseMenu"));
+        audioClips.Add(AudioClipName.Level1Music,
+            Resources.Load<AudioClip>("Audio/Level1"));
     }
 
     /// <summary>

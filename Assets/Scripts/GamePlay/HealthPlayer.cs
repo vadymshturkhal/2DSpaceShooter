@@ -30,6 +30,11 @@ public class HealthPlayer : Health
 
     SpriteRenderer playerSpriteRenderer;
 
+    // [SerializeField]
+    // AudioClipName explodeSound;
+    // [SerializeField]
+    // AudioClipName hitSound;
+
     void Start()
     {
         defaultHealthPoints = healthPoints;
@@ -60,7 +65,9 @@ public class HealthPlayer : Health
 
         TimerDelegate timerDelegate = GameObject.FindGameObjectWithTag("TimerDelegate").GetComponent<TimerDelegate>();
         timerDelegate.InitializeTimer(len, Destruct);
+
         gameObject.SetActive(false);
+        AudioManager.Play(explodeSound);
     }
 
     void Destruct()

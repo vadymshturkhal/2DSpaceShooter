@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
     GameObject levelCompletedScreen;
     PlayerController controller;
 
+    [SerializeField]
+    AudioClipName pauseSound;
+    [SerializeField]
+    AudioClipName levelSound;
+
     void Start()
     {
         controller = GetComponent<PlayerController>();
@@ -61,6 +66,7 @@ public class GameManager : MonoBehaviour
         if (context.started && !isGameOver)
         {
             RevertPause(pauseScreen);
+            AudioManager.Play(pauseSound);
         }
     }
 

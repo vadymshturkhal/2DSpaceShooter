@@ -44,10 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8afa646b678cff169b64f461442a2a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highScore: 0
-  isPaused: 0
-  gameVictoryEffect: {fileID: 0}
-  gameOverEffect: {fileID: 0}
+  pauseSound: 6
 --- !u!114 &74525450
 MonoBehaviour:
   m_ObjectHideFlags: 0

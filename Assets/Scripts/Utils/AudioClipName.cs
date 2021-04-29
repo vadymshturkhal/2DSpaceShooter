@@ -3,6 +3,12 @@
 /// </summary>
 public enum AudioClipName
 {
-    PlayerDefaultFire,
     EnemyDefaultFire,
+    EnemyExplode,
+    EnemyHit,
+    PlayerDefaultFire,
+    PlayerExplode,
+    PlayerHit,
+    PauseSound,
+    Level1Music,
 }

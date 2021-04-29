@@ -11,6 +11,9 @@ public class Health : MonoBehaviour
 
     public GameObject deathEffect;
 
+    public AudioClipName explodeSound;
+    public AudioClipName hitSound;
+
     public void AddPoints(int amount)
     {
         healthPoints += amount;
@@ -19,6 +22,7 @@ public class Health : MonoBehaviour
     public virtual void TakePoints(int amount)
     {
         healthPoints -= amount;
+        AudioManager.Play(hitSound);
     }
 
     protected virtual bool IsNotAnyHP()
@@ -37,5 +41,6 @@ public class Health : MonoBehaviour
             Instantiate(deathEffect, transform.position, transform.rotation, null);
         }
         Destroy(gameObject);
+        AudioManager.Play(explodeSound);
     }
 }

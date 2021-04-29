@@ -208,7 +208,8 @@ MonoBehaviour:
   teamId: 1
   healthPoints: 9
   deathEffect: {fileID: 1211786327070044957, guid: 05793f2ee44ad0e0eb0e1f079ce97362, type: 3}
-  hitEffect: {fileID: 0}
+  explodeSound: 1
+  hitSound: 2
   score: 3
 --- !u!1001 &7473356951842909398
 PrefabInstance:
@@ -283,7 +284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8997126851072741113, guid: bcadddf2a9d4197d589aa6d02e7c9c4c, type: 3}
       propertyPath: projectileSound
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997126851072741113, guid: bcadddf2a9d4197d589aa6d02e7c9c4c, type: 3}
       propertyPath: TimeBetweenProjectiles
