@@ -14,6 +14,7 @@ public class CanvasManager : MonoBehaviour
     void Awake()
     {
         // ResetScore();
+        LoadHighScore();
         EventManager.AddScoreListener(AddScore);
 
         scoreText = transform.Find("ScoreText").GetComponent<Text>();
@@ -36,7 +37,7 @@ public class CanvasManager : MonoBehaviour
         scoreText.text = "Score: " + score.ToString();
     }
 
-    void CheckScore()
+    void LoadHighScore()
     {
         if (PlayerPrefs.HasKey("highscore"))
         {
@@ -45,15 +46,6 @@ public class CanvasManager : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("highscore", 0);
-        }
-
-        if (PlayerPrefs.HasKey("score"))
-        {
-            score = PlayerPrefs.GetInt("score");
-        }
-        else
-        {
-            PlayerPrefs.SetInt("score", 0);
         }
     }
 

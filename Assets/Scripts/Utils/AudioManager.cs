@@ -38,8 +38,6 @@ public static class AudioManager
             Resources.Load<AudioClip>("Audio/PlayerHit"));
         audioClips.Add(AudioClipName.PauseSound,
             Resources.Load<AudioClip>("Audio/PauseMenu"));
-        audioClips.Add(AudioClipName.Level1Music,
-            Resources.Load<AudioClip>("Audio/Level1"));
     }
 
     /// <summary>
