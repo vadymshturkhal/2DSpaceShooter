@@ -35,6 +35,7 @@ public class HealthPlayer : Health
     void Respawn()
     {
         healthPoints = defaultHealthPoints;
+        HitEffectIncRed.SetDefaultColor(spriteRenderer);
         StartCoroutine(InvisibilityCoroutine(invincibilityTime));
     }
 

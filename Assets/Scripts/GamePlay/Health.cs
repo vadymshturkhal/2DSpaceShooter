@@ -31,7 +31,7 @@ public class Health : MonoBehaviour
     public virtual void TakePoints(int amount)
     {
         healthPoints -= amount;
-        spriteRenderer = HitEffectIncRed.IncrementRedComponent(spriteRenderer, hitStep);
+        HitEffectIncRed.IncrementRedComponent(spriteRenderer, hitStep);
         AudioManager.Play(hitSound);
     }
 
