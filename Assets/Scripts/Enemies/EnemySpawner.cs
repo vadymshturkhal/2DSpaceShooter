@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    const bool AddEnemy = true;
     [SerializeField]
     int quantityForSpawn = 1;
     [SerializeField]
@@ -28,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemies();
 
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        gameManager.EnemyController(true, quantityForSpawn);
+        gameManager.EnemyController(AddEnemy, quantityForSpawn);
     }
 
     void SpawnEnemy()
@@ -58,6 +59,6 @@ public class EnemySpawner : MonoBehaviour
         }
 
         quantityForSpawn -= 1;
-        gameManager.EnemyController(false, 1);
+        gameManager.EnemyController(!AddEnemy, 1);
     }
 }

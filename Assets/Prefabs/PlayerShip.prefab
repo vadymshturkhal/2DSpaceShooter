@@ -177,7 +177,8 @@ MonoBehaviour:
   deathEffect: {fileID: 2646289778685549232, guid: 4841ffa644f6ab113839640bedc3e3d1, type: 3}
   explodeSound: 4
   hitSound: 5
-  lives: 1
+  lives: 2
+  maximumLives: 5
   invincibilityTime: 3
 --- !u!1001 &1103665355
 PrefabInstance:

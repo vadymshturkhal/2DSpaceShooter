@@ -9,6 +9,7 @@ public class HealthPlayer : Health
 
     [SerializeField]
     int lives = 1;
+    [SerializeField]
     int maximumLives = 5;
     int defaultHealthPoints;
 
@@ -26,14 +27,12 @@ public class HealthPlayer : Health
 
     GameObject invisibilityEffect;
     GameOverEvent gameOverEvent;
+
     UnityAction gameOverListener;
 
     SpriteRenderer playerSpriteRenderer;
 
-    // [SerializeField]
-    // AudioClipName explodeSound;
-    // [SerializeField]
-    // AudioClipName hitSound;
+    Color defaultColor;
 
     void Start()
     {
@@ -49,6 +48,7 @@ public class HealthPlayer : Health
     void Respawn()
     {
         healthPoints = defaultHealthPoints;
+        ResetRedComponent();
         StartCoroutine(InvisibilityCoroutine(invincibilityTime));
     }
 
@@ -133,6 +133,7 @@ public class HealthPlayer : Health
     void InitRGB()
     {
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        defaultColor = playerSpriteRenderer.color;
         colorRedIncrementStep = (float)(MaxRedColor - playerSpriteRenderer.color.r) / defaultHealthPoints;
 
         red = playerSpriteRenderer.color.r;
@@ -153,5 +154,10 @@ public class HealthPlayer : Health
         }
 
         playerSpriteRenderer.color = new Color(tempRed, green, blue, alpha);
+    }
+
+    void ResetRedComponent()
+    {
+        playerSpriteRenderer.color = defaultColor;
     }
 }
