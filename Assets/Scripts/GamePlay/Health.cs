@@ -8,11 +8,20 @@ public class Health : MonoBehaviour
 
     [SerializeField]
     protected int healthPoints = 5;
+    protected float hitStep; 
 
     public GameObject deathEffect;
 
     public AudioClipName explodeSound;
     public AudioClipName hitSound;
+
+    protected SpriteRenderer spriteRenderer;
+
+    protected void Start()
+    {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        hitStep = HitEffectIncRed.CalculateIncStep(spriteRenderer, healthPoints);
+    }
 
     public void AddPoints(int amount)
     {
@@ -22,6 +31,7 @@ public class Health : MonoBehaviour
     public virtual void TakePoints(int amount)
     {
         healthPoints -= amount;
+        spriteRenderer = HitEffectIncRed.IncrementRedComponent(spriteRenderer, hitStep);
         AudioManager.Play(hitSound);
     }
 

@@ -5,8 +5,6 @@ using UnityEngine.Events;
 
 public class HealthPlayer : Health
 {
-    const float MaxRedColor = 1;
-
     [SerializeField]
     int lives = 1;
     [SerializeField]
@@ -15,13 +13,6 @@ public class HealthPlayer : Health
 
     [SerializeField]
     float invincibilityTime = 3f;
-    float colorRedIncrementStep;
-
-    float red;
-    float tempRed;
-    float green;
-    float blue;
-    float alpha;
 
     bool isInvincableFromDamage = false;
 
@@ -30,11 +21,7 @@ public class HealthPlayer : Health
 
     UnityAction gameOverListener;
 
-    SpriteRenderer playerSpriteRenderer;
-
-    Color defaultColor;
-
-    void Start()
+    new void Start()
     {
         defaultHealthPoints = healthPoints;
         invisibilityEffect = transform.Find("Shield").gameObject;
@@ -42,13 +29,12 @@ public class HealthPlayer : Health
         gameOverEvent = new GameOverEvent();
         EventManager.AddGameOverInvoker(this);
 
-        InitRGB();
+        base.Start();
     }
 
     void Respawn()
     {
         healthPoints = defaultHealthPoints;
-        ResetRedComponent();
         StartCoroutine(InvisibilityCoroutine(invincibilityTime));
     }
 
@@ -81,8 +67,6 @@ public class HealthPlayer : Health
         {
             return;
         }
-
-        IncrementRedComponent(colorRedIncrementStep);
 
         base.TakePoints(amount);
 
@@ -128,36 +112,5 @@ public class HealthPlayer : Health
     {
         gameOverListener = listener;
         gameOverEvent.AddListener(listener);
-    }
-
-    void InitRGB()
-    {
-        playerSpriteRenderer = GetComponent<SpriteRenderer>();
-        defaultColor = playerSpriteRenderer.color;
-        colorRedIncrementStep = (float)(MaxRedColor - playerSpriteRenderer.color.r) / defaultHealthPoints;
-
-        red = playerSpriteRenderer.color.r;
-        green = playerSpriteRenderer.color.g;
-        blue = playerSpriteRenderer.color.b;
-        alpha = playerSpriteRenderer.color.a;
-
-        tempRed = red;
-    }
-
-    void IncrementRedComponent(float value)
-    {
-        tempRed += value;
-
-        if (tempRed > MaxRedColor)
-        {
-            return;
-        }
-
-        playerSpriteRenderer.color = new Color(tempRed, green, blue, alpha);
-    }
-
-    void ResetRedComponent()
-    {
-        playerSpriteRenderer.color = defaultColor;
     }
 }

@@ -12,13 +12,15 @@ public class HealthEnemy : Health
     UnityAction<int> addScoreListener;
     GameObject parent;
 
-    void Start()
+    new void Start()
     {
         score = gameObject.GetComponent<EnemyStationary>().scoreValue;
         addScoreEvent = new AddScoreEvent();
         EventManager.AddScoreInvoker(this);
 
         parent = gameObject.transform.parent.gameObject;
+
+        base.Start();
     }
 
     public override void TakePoints(int amount)
