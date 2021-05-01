@@ -13,7 +13,6 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    // The highest score obtained by this player
     const string AllScreensPath = "Canvas";
     const float VictoryScreenTimeOut = 2f;
 
@@ -21,6 +20,11 @@ public class GameManager : MonoBehaviour
     bool isPaused = false;
 
     int enemiesQuantity = 0;
+
+    [SerializeField]
+    [Range(0, 1f)]
+    float pauseSoundVolume = 0.5f;
+
     string pausePath = "PauseScreen";
     string gameOverPath = "GameOverScreen";
     string levelCompletedPath = "LevelCompletedScreen";
@@ -66,7 +70,7 @@ public class GameManager : MonoBehaviour
         if (context.started && !isGameOver)
         {
             RevertPause(pauseScreen);
-            AudioManager.Play(pauseSound);
+            AudioManager.Play(pauseSound, pauseSoundVolume);
         }
     }
 

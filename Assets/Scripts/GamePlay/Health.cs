@@ -7,6 +7,14 @@ public class Health : MonoBehaviour
     public int teamId = 0;
 
     [SerializeField]
+    [Range(0, 1f)]
+    protected float hitSoundVolume = 0.5f;
+
+    [SerializeField]
+    [Range(0, 1f)]
+    protected float explodeSoundVolume = 0.5f;
+
+    [SerializeField]
     protected int healthPoints = 5;
     protected float hitStep; 
 
@@ -32,7 +40,7 @@ public class Health : MonoBehaviour
     {
         healthPoints -= amount;
         HitEffectIncRed.IncrementRedComponent(spriteRenderer, hitStep);
-        AudioManager.Play(hitSound);
+        AudioManager.Play(hitSound, hitSoundVolume);
     }
 
     protected virtual bool IsNotAnyHP()
@@ -51,6 +59,6 @@ public class Health : MonoBehaviour
             Instantiate(deathEffect, transform.position, transform.rotation, null);
         }
         Destroy(gameObject);
-        AudioManager.Play(explodeSound);
+        AudioManager.Play(explodeSound, explodeSoundVolume);
     }
 }

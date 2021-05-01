@@ -44,8 +44,8 @@ public static class AudioManager
     /// Plays the audio clip with the given name
     /// </summary>
     /// <param name="name">name of the audio clip to play</param>
-    public static void Play(AudioClipName name)
+    public static void Play(AudioClipName name, float volume)
     {
-        audioSource.PlayOneShot(audioClips[name]);
+        audioSource.PlayOneShot(audioClips[name], volume);
     }
 }

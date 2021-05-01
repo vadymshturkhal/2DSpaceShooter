@@ -54,7 +54,7 @@ public class HealthPlayer : Health
         timerDelegate.InitializeTimer(len, Destruct);
 
         gameObject.SetActive(false);
-        AudioManager.Play(explodeSound);
+        AudioManager.Play(explodeSound, explodeSoundVolume);
     }
 
     void Destruct()

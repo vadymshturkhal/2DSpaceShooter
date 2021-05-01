@@ -5,6 +5,10 @@ using UnityEngine;
 public class ProjectileHandler : MonoBehaviour
 {
     [SerializeField]
+    [Range(0, 1f)]
+    float projectileVolume = 0.5f;
+
+    [SerializeField]
     [Range(0.06f, 1f)]
     float TimeBetweenProjectiles = 0.15f;
 
@@ -58,7 +62,7 @@ public class ProjectileHandler : MonoBehaviour
 
             timeOut = TimeBetweenProjectiles;
 
-            AudioManager.Play(projectileSound);
+            AudioManager.Play(projectileSound, projectileVolume);
         }
         else
         {
