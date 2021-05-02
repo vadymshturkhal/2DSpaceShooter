@@ -1141,6 +1141,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 883141938863945822, guid: 0e89dfcac9972c36b9146a07788dcdc4, type: 3}
+      propertyPath: levelSound
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 883141938863945822, guid: 0e89dfcac9972c36b9146a07788dcdc4, type: 3}
+      propertyPath: pauseSound
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 883141938863945822, guid: 0e89dfcac9972c36b9146a07788dcdc4, type: 3}
+      propertyPath: levelVolume
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 883141938863945823, guid: 0e89dfcac9972c36b9146a07788dcdc4, type: 3}
       propertyPath: Loop
       value: 1
@@ -1152,7 +1164,7 @@ PrefabInstance:
     - target: {fileID: 883141938863945823, guid: 0e89dfcac9972c36b9146a07788dcdc4, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: b72f37cf4375fc1aa926b42e0e5c7f1b, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e89dfcac9972c36b9146a07788dcdc4, type: 3}
 --- !u!1001 &3224074712599672378
@@ -1310,6 +1322,14 @@ PrefabInstance:
     - target: {fileID: 4278339517204344796, guid: 994cd0f716677d58ab822afc4d56fc99, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278339517204344797, guid: 994cd0f716677d58ab822afc4d56fc99, type: 3}
+      propertyPath: levelSound
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278339517204344797, guid: 994cd0f716677d58ab822afc4d56fc99, type: 3}
+      propertyPath: levelVolume
+      value: 0.35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 994cd0f716677d58ab822afc4d56fc99, type: 3}

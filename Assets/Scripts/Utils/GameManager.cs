@@ -13,17 +13,13 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    const string AllScreensPath = "Canvas";
     const float VictoryScreenTimeOut = 2f;
+    const string AllScreensPath = "Canvas";
 
-    bool isGameOver;
+    bool isGameOver = false;
     bool isPaused = false;
 
     int enemiesQuantity = 0;
-
-    [SerializeField]
-    [Range(0, 1f)]
-    float pauseSoundVolume = 0.5f;
 
     string pausePath = "PauseScreen";
     string gameOverPath = "GameOverScreen";
@@ -33,11 +29,6 @@ public class GameManager : MonoBehaviour
     GameObject gameOverScreen;
     GameObject levelCompletedScreen;
     PlayerController controller;
-
-    [SerializeField]
-    AudioClipName pauseSound;
-    [SerializeField]
-    AudioClipName levelSound;
 
     void Start()
     {
@@ -70,7 +61,6 @@ public class GameManager : MonoBehaviour
         if (context.started && !isGameOver)
         {
             RevertPause(pauseScreen);
-            AudioManager.Play(pauseSound, pauseSoundVolume);
         }
     }
 

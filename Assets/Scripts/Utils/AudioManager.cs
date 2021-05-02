@@ -38,6 +38,12 @@ public static class AudioManager
             Resources.Load<AudioClip>("Audio/PlayerHit"));
         audioClips.Add(AudioClipName.PauseSound,
             Resources.Load<AudioClip>("Audio/PauseMenu"));
+        audioClips.Add(AudioClipName.Level1,
+            Resources.Load<AudioClip>("Audio/Level1"));
+        audioClips.Add(AudioClipName.Level2,
+            Resources.Load<AudioClip>("Audio/Level2"));
+        audioClips.Add(AudioClipName.Level3,
+            Resources.Load<AudioClip>("Audio/Level3"));
     }
 
     /// <summary>
@@ -46,6 +52,12 @@ public static class AudioManager
     /// <param name="name">name of the audio clip to play</param>
     public static void Play(AudioClipName name, float volume)
     {
+        audioSource.PlayOneShot(audioClips[name], volume);
+    }
+
+    public static void PlayLevel(AudioClipName name, float volume)
+    {
+        audioSource.loop = true;
         audioSource.PlayOneShot(audioClips[name], volume);
     }
 }

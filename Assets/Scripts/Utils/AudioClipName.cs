@@ -10,4 +10,7 @@ public enum AudioClipName
     PlayerExplode,
     PlayerHit,
     PauseSound,
+    Level1,
+    Level2,
+    Level3,
 }
