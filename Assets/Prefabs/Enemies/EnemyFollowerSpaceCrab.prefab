@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 3
-  rotationalSpeed: 50
+  rotationalSpeed: 60
 --- !u!114 &2484951813615118520
 MonoBehaviour:
   m_ObjectHideFlags: 0

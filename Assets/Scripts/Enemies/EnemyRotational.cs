@@ -9,11 +9,10 @@ public class EnemyRotational : EnemyStationary
     [SerializeField]
     [Range(10, 100)]
     int rotationalSpeed = 10;
-    float currentSpeed;
     float angleBetweenEnemyAndTarget;
 
     Vector3 position;
-    Vector3 difference;
+    Vector3 tempVector;
     GameObject currentTarget;
 
     protected override void Awake()
@@ -65,13 +64,15 @@ public class EnemyRotational : EnemyStationary
     {
         if (onTheRight)
         {
-            transform.rotation = Quaternion.AngleAxis(currentSpeed, Vector3.forward);
-            currentSpeed -= Time.deltaTime * rotationalSpeed;
+            tempVector = transform.position;
+            tempVector.z += rotationalSpeed * Time.deltaTime;
+            gameObject.transform.Rotate(0, 0, -tempVector.z, Space.World);
         }
         else
         {
-            transform.rotation = Quaternion.AngleAxis(currentSpeed, Vector3.forward);
-            currentSpeed += Time.deltaTime * rotationalSpeed;
+            tempVector = transform.position;
+            tempVector.z += rotationalSpeed * Time.deltaTime;
+            gameObject.transform.Rotate(0, 0, tempVector.z, Space.World);
         }
     }
 }

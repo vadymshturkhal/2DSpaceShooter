@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemy != null)
         {
-            Instantiate(enemy, transform.position, Quaternion.identity).gameObject.transform.SetParent(gameObject.transform);
+            Instantiate(enemy, transform.position, transform.rotation).gameObject.transform.SetParent(gameObject.transform);
         }
     }
 
@@ -53,12 +53,14 @@ public class EnemySpawner : MonoBehaviour
 
     public void ReduceQuantityOfEnemies()
     {
+        quantityForSpawn -= 1;
+        gameManager.EnemyController(!AddEnemy, 1);
+
         if (quantityForSpawn <= 0)
         {
+            Destroy(gameObject);
             return;
         }
 
-        quantityForSpawn -= 1;
-        gameManager.EnemyController(!AddEnemy, 1);
     }
 }
