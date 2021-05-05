@@ -47,6 +47,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\SelectAxis.cs" />
      <Compile Include="Assets\Scripts\Utils\CameraFollower.cs" />
      <Compile Include="Assets\Scripts\Explosion.cs" />
      <Compile Include="Assets\Scripts\GamePlay\Shield.cs" />
@@ -75,6 +76,7 @@
      <Compile Include="Assets\Scripts\Projectiles\ProjectileHandler.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyStationary.cs" />
      <Compile Include="Assets\Scripts\Canvas\CanvasManager.cs" />
+     <Compile Include="Assets\Scripts\MoveAroundPosition.cs" />
      <Compile Include="Assets\Scripts\GamePlay\HealthEnemy.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/home/vshturkhal/UnityEditor/2020.3.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
