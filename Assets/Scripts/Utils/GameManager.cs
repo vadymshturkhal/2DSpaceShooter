@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
     bool isGameOver = false;
     bool isPaused = false;
 
-    int enemiesQuantity = 0;
-
     string pausePath = "PauseScreen";
     string gameOverPath = "GameOverScreen";
     string levelCompletedPath = "LevelCompletedScreen";
@@ -99,22 +97,6 @@ public class GameManager : MonoBehaviour
         RevertPause(pauseScreen);
     }
 
-    public void EnemyController(bool addEnemy, int quantity)
-    {
-        if (addEnemy)
-        {
-            enemiesQuantity += quantity;
-        }
-        else
-        {
-            enemiesQuantity -= quantity;
-            if (enemiesQuantity <= 0)
-            {
-                LevelCompletedScreenTimeOut();
-            }
-        }
-    }
-
     void LevelCompletedScreen()
     {
         RevertPause(levelCompletedScreen);
@@ -124,5 +106,10 @@ public class GameManager : MonoBehaviour
     {
         TimerDelegate timerDelegate = GameObject.FindGameObjectWithTag("TimerDelegate").GetComponent<TimerDelegate>();
         timerDelegate.InitializeTimer(VictoryScreenTimeOut, LevelCompletedScreen);
+    }
+
+    public void ShowVictoryScreen()
+    {
+        LevelCompletedScreenTimeOut();
     }
 }

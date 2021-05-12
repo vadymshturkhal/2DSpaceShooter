@@ -35,7 +35,7 @@ public class HealthEnemy : Health
         {
             if (onDestroyAction != null)
             {
-                onDestroyAction();
+                DoOnDestroyAction();
             }
 
             DieWithEvent();
@@ -51,5 +51,13 @@ public class HealthEnemy : Health
     public void AddScoreEventListener(UnityAction<int> listener)
     {
         addScoreEvent.AddListener(listener);
+    }
+
+    void DoOnDestroyAction()
+    {
+        if (onDestroyAction != null)
+        {
+            onDestroyAction();
+        }
     }
 }

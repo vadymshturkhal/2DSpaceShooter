@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,13 +7,44 @@ public class EnemySpawnerBlock : MonoBehaviour
 {
     int totalSpawners = 0;
 
-    void IncSpawnersCount()
+    Action onDestroyAction;
+
+    public Action OnDestroyAction
     {
-        totalSpawners++;
+        set { onDestroyAction = value; }
     }
 
-    void PrintQuantity()
+    void Start()
     {
-        Debug.Log(totalSpawners);
+        totalSpawners = transform.childCount;
+
+        AddOnDestroyCallbackToChild();
+    }
+
+    void GameManagerCallback()
+    {
+        totalSpawners--;
+
+        if (totalSpawners <= 0)
+        {
+            DoOnDestroyAction();
+        }
+    }
+
+    void AddOnDestroyCallbackToChild()
+    {
+        foreach (Transform transform in transform)
+        {
+            transform.gameObject.GetComponent<EnemySpawner>().OnDestroyAction = GameManagerCallback;
+        }
+    }
+
+    void DoOnDestroyAction()
+    {
+        if (onDestroyAction != null)
+        {
+            onDestroyAction();
+            Destroy(gameObject);
+        }
     }
 }

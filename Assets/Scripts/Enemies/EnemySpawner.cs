@@ -16,9 +16,14 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     GameObject enemy;
 
-    GameManager gameManager;
-
     TimerDelegate timer;
+
+    Action onDestroyAction;
+
+    public Action OnDestroyAction
+    {
+        set { onDestroyAction = value; }
+    }
 
     void Start()
     {
@@ -29,9 +34,6 @@ public class EnemySpawner : MonoBehaviour
         }
 
         SpawnEnemies();
-
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        gameManager.EnemyController(AddEnemy, quantityForSpawn);
     }
 
     void SpawnEnemy()
@@ -58,12 +60,23 @@ public class EnemySpawner : MonoBehaviour
     void ReduceQuantityOfEnemies()
     {
         quantityForSpawn--;
-        
-        gameManager.EnemyController(!AddEnemy, 1);
 
         if (quantityForSpawn <= 0)
         {
+            if (onDestroyAction != null)
+            {
+                DoOnDestroyAction();
+            }
+
             Destroy(gameObject);
+        }
+    }
+
+    void DoOnDestroyAction()
+    {
+        if (onDestroyAction != null)
+        {
+            onDestroyAction();
         }
     }
 }
