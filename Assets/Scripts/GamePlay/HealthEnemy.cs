@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,16 +10,19 @@ public class HealthEnemy : Health
     int score = 0;
 
     AddScoreEvent addScoreEvent;
-    UnityAction<int> addScoreListener;
-    GameObject parent;
+
+    Action onDestroyAction;
+
+    public Action OnDestroyAction
+    {
+        set { onDestroyAction = value; }
+    }
 
     new void Start()
     {
         score = gameObject.GetComponent<EnemyStationary>().scoreValue;
         addScoreEvent = new AddScoreEvent();
         EventManager.AddScoreInvoker(this);
-
-        parent = gameObject.transform.parent.gameObject;
 
         base.Start();
     }
@@ -29,10 +33,11 @@ public class HealthEnemy : Health
 
         if (IsNotAnyHP())
         {
-            if (parent != null)
+            if (onDestroyAction != null)
             {
-                parent.GetComponent<EnemySpawner>().ReduceQuantityOfEnemies();
+                onDestroyAction();
             }
+
             DieWithEvent();
         }
     }
@@ -45,7 +50,6 @@ public class HealthEnemy : Health
 
     public void AddScoreEventListener(UnityAction<int> listener)
     {
-        addScoreListener = listener;
         addScoreEvent.AddListener(listener);
     }
 }

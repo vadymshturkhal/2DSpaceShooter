@@ -9,6 +9,13 @@ public class DoAfter : MonoBehaviour
     [SerializeField]
     List<GameObject> party;
 
+    [SerializeField]
+    List<GameObject> doActive;
+
+    [SerializeField]
+    // GameObject gameManager;
+    // GameManager GM;
+
     void Start()
     {
         foreach (GameObject gameObj in party)
@@ -17,6 +24,10 @@ public class DoAfter : MonoBehaviour
         }
 
         partyCounter = party.Count;
+
+        // GM = gameManager.GetComponent<GameManager>();
+
+        // DoActive(false);
     }
 
     void ReduceParty()
@@ -24,12 +35,21 @@ public class DoAfter : MonoBehaviour
         partyCounter--;
         if (partyCounter <= 0)
         {
-            DoAfter();
+            DoAfterEvent();
         }
     }
 
-    void DoAfter()
+    void DoAfterEvent()
     {
+        DoActive(true);
         Destroy(gameObject);
+    }
+
+    void DoActive(bool state)
+    {
+        foreach (GameObject gameObj in doActive)
+        {
+            gameObj.SetActive(state);
+        }
     }
 }

@@ -63,14 +63,17 @@
      <Compile Include="Assets\Scripts\Projectiles\ProjectileSpawner.cs" />
      <Compile Include="Assets\Scripts\Utils\HighlightFix.cs" />
      <Compile Include="Assets\Scripts\HitEffectIncRed.cs" />
+     <Compile Include="Assets\Scripts\DoAfter.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyFollower.cs" />
      <Compile Include="Assets\Scripts\Events\AddScoreEvent.cs" />
      <Compile Include="Assets\Scripts\Border.cs" />
+     <Compile Include="Assets\Scripts\DoAfterSupporter.cs" />
      <Compile Include="Assets\Scripts\GamePlay\Health.cs" />
      <Compile Include="Assets\Scripts\Utils\GameAudioSource.cs" />
      <Compile Include="Assets\Scripts\Events\EventManager.cs" />
      <Compile Include="Assets\Scripts\Scenes.cs" />
      <Compile Include="Assets\Scripts\Utils\AudioClipName.cs" />
+     <Compile Include="Assets\Scripts\Enemies\LevelEnemySpawner.cs" />
      <Compile Include="Assets\Scripts\Utils\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Utils\TimerDelegate.cs" />
      <Compile Include="Assets\Scripts\Projectiles\ProjectileHandler.cs" />
@@ -78,6 +81,7 @@
      <Compile Include="Assets\Scripts\Canvas\CanvasManager.cs" />
      <Compile Include="Assets\Scripts\MoveAroundPosition.cs" />
      <Compile Include="Assets\Scripts\GamePlay\HealthEnemy.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemySpawnerBlock.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/home/vshturkhal/UnityEditor/2020.3.0f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/mono/Managed/UnityEngine.dll</HintPath>
  </Reference>
