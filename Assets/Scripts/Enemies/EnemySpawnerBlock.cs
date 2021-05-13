@@ -3,31 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawnerBlock : MonoBehaviour
+public class EnemySpawnerBlock : BasicSpawner
 {
-    int totalSpawners = 0;
-
-    Action onDestroyAction;
-
-    public Action OnDestroyAction
-    {
-        set { onDestroyAction = value; }
-    }
-
     void Start()
     {
-        totalSpawners = transform.childCount;
+        quantity = transform.childCount;
 
         AddOnDestroyCallbackToChild();
     }
 
     void GameManagerCallback()
     {
-        totalSpawners--;
+        quantity--;
 
-        if (totalSpawners <= 0)
+        if (quantity <= 0)
         {
             DoOnDestroyAction();
+            Destroy(gameObject);
         }
     }
 
@@ -36,15 +28,6 @@ public class EnemySpawnerBlock : MonoBehaviour
         foreach (Transform transform in transform)
         {
             transform.gameObject.GetComponent<EnemySpawner>().OnDestroyAction = GameManagerCallback;
-        }
-    }
-
-    void DoOnDestroyAction()
-    {
-        if (onDestroyAction != null)
-        {
-            onDestroyAction();
-            Destroy(gameObject);
         }
     }
 }

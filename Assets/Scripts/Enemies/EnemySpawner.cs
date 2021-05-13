@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : BasicSpawner
 {
     const bool AddEnemy = true;
 
     [SerializeField]
-    int quantityForSpawn = 1;
+    int quantityToSpawn = 1;
 
     [SerializeField]
     float timeBetweenSpawn = 1;
@@ -17,13 +17,6 @@ public class EnemySpawner : MonoBehaviour
     GameObject enemy;
 
     TimerDelegate timer;
-
-    Action onDestroyAction;
-
-    public Action OnDestroyAction
-    {
-        set { onDestroyAction = value; }
-    }
 
     void Start()
     {
@@ -50,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
     {
         float tempTime = timeBetweenSpawn;
 
-        for (int i = 0; i < quantityForSpawn; i++)
+        for (int i = 0; i < quantityToSpawn; i++)
         {
             timer.InitializeTimer(tempTime, SpawnEnemy);
             tempTime += timeBetweenSpawn;
@@ -59,24 +52,12 @@ public class EnemySpawner : MonoBehaviour
 
     void ReduceQuantityOfEnemies()
     {
-        quantityForSpawn--;
+        quantityToSpawn--;
 
-        if (quantityForSpawn <= 0)
+        if (quantityToSpawn <= 0)
         {
-            if (onDestroyAction != null)
-            {
-                DoOnDestroyAction();
-            }
-
+            DoOnDestroyAction();
             Destroy(gameObject);
-        }
-    }
-
-    void DoOnDestroyAction()
-    {
-        if (onDestroyAction != null)
-        {
-            onDestroyAction();
         }
     }
 }

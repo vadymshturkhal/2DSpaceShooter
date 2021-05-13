@@ -3,25 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelEnemySpawner : MonoBehaviour
+public class LevelEnemySpawner : BasicSpawner
 {
-    int totalSpawnerBlocks = 0;
-
     [SerializeField]
     GameObject gameManager;
 
     GameManager GM;
 
-    Action onDestroyAction;
-
-    public Action OnDestroyAction
-    {
-        set { onDestroyAction = value; }
-    }
-
     void Start()
     {
-        totalSpawnerBlocks = transform.childCount;
+        quantity = transform.childCount;
 
         GM = gameManager.GetComponent<GameManager>();
 
@@ -30,10 +21,9 @@ public class LevelEnemySpawner : MonoBehaviour
 
     void OnDestroyEnemySpawnerBlock()
     {
-        totalSpawnerBlocks--;
+        quantity--;
 
-
-        if (totalSpawnerBlocks <= 0)
+        if (quantity <= 0)
         {
             print("Victory");
             GM.ShowVictoryScreen();
@@ -49,14 +39,6 @@ public class LevelEnemySpawner : MonoBehaviour
         foreach (Transform transform in transform)
         {
             transform.gameObject.GetComponent<EnemySpawnerBlock>().OnDestroyAction = OnDestroyEnemySpawnerBlock;
-        }
-    }
-
-    void DoOnDestroyAction()
-    {
-        if (onDestroyAction != null)
-        {
-            onDestroyAction();
         }
     }
 }

@@ -271,6 +271,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8282131552441171991, guid: 755c57499b05c9d1fb7d94e41d45d68f, type: 3}
     - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
+      propertyPath: totalSpawners
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
       propertyPath: quantityForSpawn
       value: 1
       objectReference: {fileID: 0}
@@ -751,6 +755,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8282131552441171991, guid: 755c57499b05c9d1fb7d94e41d45d68f, type: 3}
     - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
+      propertyPath: totalSpawners
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
       propertyPath: quantityForSpawn
       value: 1
       objectReference: {fileID: 0}
@@ -1226,6 +1234,10 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 8282131552441171991, guid: 755c57499b05c9d1fb7d94e41d45d68f, type: 3}
+    - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
+      propertyPath: totalSpawners
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
       propertyPath: quantityForSpawn
       value: 1
@@ -1906,6 +1918,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8282131552441171991, guid: fd821cc36f666d54592388e02f75fcb5, type: 3}
     - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
+      propertyPath: totalSpawners
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
       propertyPath: quantityForSpawn
       value: 1
       objectReference: {fileID: 0}
@@ -2249,6 +2265,10 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 8282131552441171991, guid: fd821cc36f666d54592388e02f75fcb5, type: 3}
+    - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
+      propertyPath: totalSpawners
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
       propertyPath: quantityForSpawn
       value: 1
@@ -2617,6 +2637,10 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 8282131552441171991, guid: fd821cc36f666d54592388e02f75fcb5, type: 3}
+    - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
+      propertyPath: totalSpawners
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
       propertyPath: quantityForSpawn
       value: 1
@@ -3019,6 +3043,10 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 8282131552441171991, guid: 755c57499b05c9d1fb7d94e41d45d68f, type: 3}
+    - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
+      propertyPath: totalSpawners
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
       propertyPath: quantityForSpawn
       value: 1
@@ -3608,6 +3636,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8282131552441171991, guid: 755c57499b05c9d1fb7d94e41d45d68f, type: 3}
     - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
+      propertyPath: totalSpawners
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
       propertyPath: quantityForSpawn
       value: 1
       objectReference: {fileID: 0}
@@ -4021,6 +4053,10 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 8282131552441171991, guid: 755c57499b05c9d1fb7d94e41d45d68f, type: 3}
+    - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
+      propertyPath: totalSpawners
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6228673018037325575, guid: 748728db62e9b022da7d5e64097a8125, type: 3}
       propertyPath: quantityForSpawn
       value: 1
