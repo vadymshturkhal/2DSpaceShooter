@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\Events\EventManager.cs" />
      <Compile Include="Assets\Scripts\Scenes.cs" />
      <Compile Include="Assets\Scripts\Utils\AudioClipName.cs" />
+     <Compile Include="Assets\Scripts\Enemies\BasicSpawner.cs" />
      <Compile Include="Assets\Scripts\Enemies\LevelEnemySpawner.cs" />
      <Compile Include="Assets\Scripts\Utils\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Utils\TimerDelegate.cs" />

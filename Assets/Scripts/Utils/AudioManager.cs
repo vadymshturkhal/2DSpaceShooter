@@ -57,7 +57,9 @@ public static class AudioManager
 
     public static void PlayLevel(AudioClipName name, float volume)
     {
+        audioSource.clip = audioClips[name];
+        audioSource.volume = volume;
         audioSource.loop = true;
-        audioSource.PlayOneShot(audioClips[name], volume);
+        audioSource.Play();
     }
 }

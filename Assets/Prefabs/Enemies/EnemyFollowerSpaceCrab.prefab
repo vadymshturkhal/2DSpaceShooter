@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamId: 1
-  hitSoundVolume: 0.7
+  hitSoundVolume: 0.5
   explodeSoundVolume: 0.5
   healthPoints: 9
   deathEffect: {fileID: 1211786327070044957, guid: 05793f2ee44ad0e0eb0e1f079ce97362, type: 3}

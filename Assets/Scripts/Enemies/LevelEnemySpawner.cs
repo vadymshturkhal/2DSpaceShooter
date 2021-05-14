@@ -6,6 +6,9 @@ using UnityEngine;
 public class LevelEnemySpawner : BasicSpawner
 {
     [SerializeField]
+    bool isFinalLevel = false;
+
+    [SerializeField]
     GameObject gameManager;
 
     GameManager GM;
@@ -26,7 +29,7 @@ public class LevelEnemySpawner : BasicSpawner
         if (quantity <= 0)
         {
             print("Victory");
-            GM.ShowVictoryScreen();
+            GM.ShowVictoryScreen(isFinalLevel);
         }
         else
         {

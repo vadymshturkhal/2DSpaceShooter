@@ -22,10 +22,12 @@ public class GameManager : MonoBehaviour
     string pausePath = "PauseScreen";
     string gameOverPath = "GameOverScreen";
     string levelCompletedPath = "LevelCompletedScreen";
+    string gameVictoryPath = "GameVictoryScreen";
 
     GameObject pauseScreen;
     GameObject gameOverScreen;
     GameObject levelCompletedScreen;
+
     PlayerController controller;
 
     void Start()
@@ -108,8 +110,13 @@ public class GameManager : MonoBehaviour
         timerDelegate.InitializeTimer(VictoryScreenTimeOut, LevelCompletedScreen);
     }
 
-    public void ShowVictoryScreen()
+    public void ShowVictoryScreen(bool isFinalLevel)
     {
+        if (isFinalLevel)
+        {
+            levelCompletedScreen = InitializeScreen(gameVictoryPath);
+        }
+
         LevelCompletedScreenTimeOut();
     }
 }

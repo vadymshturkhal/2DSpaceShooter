@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ff142e9c93ea41e9a04da0ad2064f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 3.5
   minDistanceToTarget: 3
   target: {fileID: 0}
 --- !u!114 &-9219663958914779343
@@ -234,7 +234,7 @@ MonoBehaviour:
   teamId: 1
   hitSoundVolume: 0.7
   explodeSoundVolume: 0.5
-  healthPoints: 12
+  healthPoints: 20
   deathEffect: {fileID: 6530433016064514370, guid: dd97515a3c97bc1c58c6cf33f02fb658, type: 3}
   explodeSound: 1
   hitSound: 2
